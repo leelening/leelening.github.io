@@ -2,14 +2,13 @@
 layout: home
 permalink: /
 permalink_name: /home
-title: jekyll-shell-theme
-
-detail_image: assets/theme_logo.svg
-
+title: Robot Makes World Better
 ---
 
-# jekyll-shell-theme
+# Lening Li
 
-**Lening Li** is a Ph.D. cadidate in Robotics Enginnering department in Worcester Polytehcini institute. 
+![](./assets/logo.jpg){:style="float: right;margin-left: 7px;margin-right: 7px;margin-top: 7px;"}
 
-No prior web-dev knowledge is required to use the theme to make a website, just follow the instructions in [/read-me](read-me) to set up your web page and start filling it with hackery content! You can see sone features of the theme in [/preview](preview).
+I am a Ph.D. candidate in Robotics Engineering department in Worcester Polytechnic Institute (WPI). I received a B.S. degree in Information Security (Computer Science) and a B.A. degree in English Language and Literature from Harbin Institute of Technology, China in 2014, and an M.S. degree in Computer Science from WPI, MA, USA, in 2016. To see a more formal biography, click [here](./assets/CV.pdf).
+
+My research interests include reinforcement learning, stochastic control, game theory, and formal methods.

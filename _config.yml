@@ -1,8 +1,8 @@
-title: "jekyll-shell-theme"
+title: "Lening Li"
 tagline: "A jekyll theme that looks like a shell/terminal"
-description: "This is a preview of jekyll-shell-theme."
+description: "This is the personal website for Lening Li."
 github_username: leelening
-baseurl: "/jekyll-shell-theme"
+baseurl: ""
 url: "https://leelening.github.io"
 
 plugins:
@@ -17,8 +17,14 @@ highlighter: rouge
 
 header_pages:
   - index.md
-  - read-me.md
-  - preview.md
+  - publications.md
+  - projects.md
+  - posts.md
+  - contact.md
+
+collections:
+  projects:
+    output: true
 
 # set the size of the text to 'large' or 'small', default is small
 font-size: small
