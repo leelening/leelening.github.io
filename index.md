@@ -3,7 +3,7 @@
 Newlayout: home
 permalink: /
 permalink_name: /home
-title: Robot Makes World Better
+title: home
 ---
 
 # Lening Li (郦乐宁)
