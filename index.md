@@ -3,7 +3,7 @@
 Newlayout: home
 permalink: /
 permalink_name: /home
-title: home
+title: Home
 ---
 
 # Lening Li (郦乐宁)

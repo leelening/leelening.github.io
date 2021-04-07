@@ -2,7 +2,7 @@
 layout: page
 permalink: /contact
 permalink_name: /contact
-title: Robot Makes World Better
+title: Contact
 ---
 
 ---

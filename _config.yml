@@ -20,6 +20,7 @@ header_pages:
   - index.md
   - publications.md
   - projects.md
+  - software.md
   - posts.md
   - personal.md
   - contact.md
