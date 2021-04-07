@@ -2,7 +2,7 @@
 layout: page
 permalink: /posts
 permalink_name: /posts
-title: Technical Posts
+title: Posts
 ---
 
  {% for post in site.posts %}
