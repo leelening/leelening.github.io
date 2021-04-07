@@ -2,6 +2,7 @@ title: "Lening Li"
 tagline: "A jekyll theme that looks like a shell/terminal"
 description: "This is the personal website for Lening Li."
 github_username: leelening
+twitter_username: LeeLening
 baseurl: ""
 url: "https://leelening.github.io"
 
@@ -26,6 +27,9 @@ header_pages:
 collections:
   projects:
     output: true
+
+include:
+  - _data
 
 # set the size of the text to 'large' or 'small', default is small
 font-size: small
