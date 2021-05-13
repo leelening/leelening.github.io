@@ -8,6 +8,7 @@ title: Publications
 ## Under review
 
 1. **L. Li**, H. Ma, A. N. Kulkarni, and J. Fu, “Dynamic hypergames for synthesis of deceptive strategies with temporal logic objectives,”arXiv preprint arXiv:2007.15726, 2020
+2. **L.Li** and J. Fu, "Policy Synthesis for Metric Interval Temporal Logic with Probabilistic Distributions", arXiv preprint arXiv:2105.04593, 2021
 
 ## Conference
 
