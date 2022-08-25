@@ -6,16 +6,16 @@ permalink_name: /home
 title: Home
 ---
 
-# Lening Li (郦乐宁)
+# Dr. Lening Li (郦乐宁)
 
 ![](./assets/logo.jpg){:style="float: right;margin-left: 7px;margin-right: 7px;margin-top: 7px;"}
 
-I am a senior software engineer at Berkshire Grey. At the same time, I am a Ph.D. candidate in Robotics Engineering in Worcester Polytechnic Institute (WPI) under Professor [Jie Fu](https://users.wpi.edu/~jfu2/). I received a B.S. degree in Computer Science and a B.A. degree in English Language and Literature from Harbin Institute of Technology, China in 2014. After that, I obtained two Master's degrees in Robotics Engineering and Computer Science in May 2021 under Professor [Jie Fu](https://users.wpi.edu/~jfu2/) and May 2016 under Professor [Michael A. Gennert](http://web.cs.wpi.edu/~michaelg/) from WPI. To see a more formal biography, click [here](https://drive.google.com/file/d/1cWA5keY17015YE_npzS7vNxj9hsfW5Fq/view?usp=sharing).
+I am a Ph.D. in Robotics Engineering in Worcester Polytechnic Institute (WPI) under Professor [Jie Fu](https://users.wpi.edu/~jfu2/). I received a B.S. degree in Computer Science and a B.A. degree in English Language and Literature from Harbin Institute of Technology, China in 2014. After that, I obtained two Master's degrees in Robotics Engineering and Computer Science in May 2021 under Professor [Jie Fu](https://users.wpi.edu/~jfu2/) and May 2016 under Professor [Michael A. Gennert](http://web.cs.wpi.edu/~michaelg/) from WPI. To see a more formal biography, click [here](https://drive.google.com/file/d/1cWA5keY17015YE_npzS7vNxj9hsfW5Fq/view?usp=sharing).
 
 My research interests include reinforcement learning, stochastic control, game theory, motion planning, and formal methods.
 
 ## News
-
+- I passed my Ph.D. final defense on 23rd of August 2022.
 - I am currently looking for a robotics related job.
 - ~~I finished my duty as President of Graduate Student Government from Jan 2019 - May 2020.~~
 - ~~I attended **Robot Learning Workhop** 2019 in Lehigh University.~~
