@@ -9,13 +9,9 @@ title: Reinforcement Learning with Formal Methods
 
 ![](../assets/automaton.png){:style="float: left;margin-left: 7px;margin-right: 7px;margin-top: 7px;margin-bottom: 7px" height="150"}
 
-
-
 This objective is to develop a model-free reinforcement learning method for stochastic planning under temporal logic constraints. In recent work [1], we propose an approach to translate high-level system specifications expressed by a subclass of Probabilistic Computational Tree Logic (PCTL) into chance constraints. We devise a variant of Approximate Dynamic Programming method—approximate value iteration— to solve for the optimal policy while the satisfaction of the PCTL formula is guaranteed.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/MJRgdngLjbw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
 
 ![](../assets/errors.png){:style="float: right;margin-left: 7px;margin-right: 7px;margin-top: 7px;margin-bottom: 7px" height="150"}
 
