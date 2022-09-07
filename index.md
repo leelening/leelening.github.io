@@ -10,7 +10,7 @@ title: Home
 
 ![](./assets/logo.jpg){:style="float: right;margin-left: 7px;margin-right: 7px;margin-top: 7px;"}
 
-I am a Ph.D. in Robotics Engineering in Worcester Polytechnic Institute (WPI) under Professor [Jie Fu](https://users.wpi.edu/~jfu2/). I received a B.S. degree in Computer Science and a B.A. degree in English Language and Literature from Harbin Institute of Technology, China in 2014. After that, I obtained two Master's degrees in Robotics Engineering and Computer Science in May 2021 under Professor [Jie Fu](https://users.wpi.edu/~jfu2/) and May 2016 under Professor [Michael A. Gennert](http://web.cs.wpi.edu/~michaelg/) from WPI. To see a more formal biography, click [here](https://drive.google.com/file/d/1cWA5keY17015YE_npzS7vNxj9hsfW5Fq/view?usp=sharing).
+I am a Ph.D. in Robotics Engineering in Worcester Polytechnic Institute (WPI) under Professor [Jie Fu](https://users.wpi.edu/~jfu2/). I received a B.S. degree in Computer Science and a B.A. degree in English Language and Literature from Harbin Institute of Technology, China in 2014. After that, I obtained two Master's degrees in Robotics Engineering and Computer Science in May 2021 under Professor [Jie Fu](https://users.wpi.edu/~jfu2/) and May 2016 under Professor [Michael A. Gennert](http://web.cs.wpi.edu/~michaelg/) from WPI. To see a more formal biography, click [here](https://drive.google.com/file/d/1MmUvte9eJH49C5VyeVby-Z4RkXL9B-nW/view?usp=sharing) or [中文版](https://drive.google.com/file/d/1MmJdGnNAjh3ZaCq0C7UZm_JhYPDgnekm/view?usp=sharing).
 
 My research interests include reinforcement learning, stochastic control, game theory, motion planning, and formal methods.
 
