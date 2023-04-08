@@ -1,7 +1,9 @@
-`layout: post
-permalink: /posts/shortest-path
-permalink_name: /shortest-path
-title: Find the shortest path from source to destination in a matrix`
+---
+layout: post
+permalink: /posts/shortestpath
+permalink_name: /shortestpath
+title: Find the shortest path from source to destination in a matrix
+---
 
 Pseudo code
 ```
