@@ -5,8 +5,6 @@ permalink_name: /contact
 title: Contact
 ---
 
----
-
 Last modified date: 04/08/2023
 
 ## Electronic:
