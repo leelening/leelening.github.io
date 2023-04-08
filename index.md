@@ -6,24 +6,33 @@ permalink_name: /home
 title: Home
 ---
 
-# Dr. Lening Li (郦乐宁)
+# Lening Li (郦乐宁), Ph.D. 
 
 ![](./assets/logo.jpg){:style="float: right;margin-left: 7px;margin-right: 7px;margin-top: 7px;"}
 
-I am a Ph.D. in Robotics Engineering at Worcester Polytechnic Institute (WPI) under Professor [Jie Fu](https://fujie.ece.ufl.edu/). I received a B.S. degree in Computer Science and a B.A. in English Language and Literature from Harbin Institute of Technology, China, in 2014. After that, I obtained two Master's degrees in Robotics Engineering and Computer Science in May 2021 under Professor Jie Fu and May 2016 under Professor [Michael A. Gennert](http://web.cs.wpi.edu/~michaelg/) from WPI. To see a more formal biography, click [English version](https://drive.google.com/file/d/1MmUvte9eJH49C5VyeVby-Z4RkXL9B-nW/view?usp=sharing) or [中文版](https://drive.google.com/file/d/1MmJdGnNAjh3ZaCq0C7UZm_JhYPDgnekm/view?usp=sharing).
+Currently, I am a Senior Software Engineer at [Symbotic](https://www.symbotic.com/) focusing on routing for multi-agent systems. I proudly earned my Ph.D. degree in Robotics Engineering from Worcester Polytechnic Institute (WPI) under Professor [Jie Fu](https://fujie.ece.ufl.edu/) in December 2022. My research interests include reinforcement learning, stochastic optimal control, game theory, motion planning, and formal methods.
 
-My research interests include reinforcement learning, stochastic control, game theory, motion planning, and formal methods.
+I received a B.S. degree in Computer Science and a B.A. in English Language and Literature from Harbin Institute of Technology, China, in 2014. Then, I obtained a M.S. degree in Computer Science in May 2016 under Professor [Michael A. Gennert](http://web.cs.wpi.edu/~michaelg/) from WPI. Also, I gained another M.S. degree in Robotics Engineering in May 2021 under Professor Jie Fu from WPI. 
+
+To see more details, click my [curriculum vitae](https://drive.google.com/file/d/1MmUvte9eJH49C5VyeVby-Z4RkXL9B-nW/view?usp=sharing) or [履历](https://drive.google.com/file/d/1MmJdGnNAjh3ZaCq0C7UZm_JhYPDgnekm/view?usp=sharing). 
+
+Last modified date: 04/08/2023
 
 ## News
-- I passed my Ph.D. final defense on 23rd of August 2022.
-- I am currently looking for a robotics related job.
-- ~~I finished my duty as President of Graduate Student Government from Jan 2019 - May 2020.~~
-- ~~I attended **Robot Learning Workhop** 2019 in Lehigh University.~~
-- ~~I went to **NERC** 2019 in University of Pennsylvania.~~
-- ~~I presented on **American Control Conference** 2019.~~
-- ~~I attended **Princeton Day of Optimization** 2018.~~
-- ~~I presented my work in **ICRA 2017** Singapore.~~
-- ~~I presented a poster in the **Humanoids 2016** which is held in Cancun, Mexico.~~
-- ~~I presented a poster in the **NERC V** that will be hold in Cornell University.~~
+- My new paper [Synthesis of Proactive Sensor Placement In Probabilistic Attack Graphs](https://arxiv.org/abs/2210.07385) is accepted to [2023 American Control Conference](https://acc2023.a2c2.org/) where I will be presenting my work.
+- I joined minibot routing team at Symbotic on 3rd October 2022.
+- I earned my Ph.D. degree in Robotics Engineering from WPI in December 2022.
+- My journal paper [Dynamic hypergames for synthesis of deceptive strategies with temporal logic objectives](https://ieeexplore.ieee.org/abstract/document/9716225) was published on [IEEE Transactions on Automation Science and Engineering](https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=8856).
+- ~~I passed my Ph.D. final defense on 23rd of August 2022.~~
+- ~~I joined pick team at [Berkshire Grey](https://www.berkshiregrey.com/) on 4th October 2021.~~
+- ~~I served as President of [Graduate Student Government](https://www.facebook.com/WPIGSG/) from Jan 2019 - May 2020.~~
+- ~~I attended [Robot Learning Workhop 2019](https://wordpress.lehigh.edu/robotics/2019/10/09/robotics-workshop/) in Lehigh University.~~
+- ~~I attended [NERC 2019](https://sung.seas.upenn.edu/nerc-penn/) at University of Pennsylvania.~~
+- ~~I presented my work [Approximate dynamic programming with probabilistic temporal logic constraints](https://ieeexplore.ieee.org/abstract/document/8815215) on [American Control Conference 2019](https://acc2019.a2c2.org/).~~
+- ~~I attended [Princeton Day of Optimization 2018](https://pdo.princeton.edu/).~~
+- ~~I presented my work [Sampling-based approximate optimal temporal logic planning](https://ieeexplore.ieee.org/abstract/document/7989157) on [ICRA 2017](http://icra2017.org/), Singapore.~~
+- ~~I presented my work [Birrtopt: A combined sampling and optimizing motion planner for humanoid robots](https://ieeexplore.ieee.org/document/7803317) on [Humanoids 2016](https://www.humanoids2016.org/), Cancun, Mexico.~~
+- ~~I attended [NERC 2016](https://www.facebook.com/Cornell.Robotics/) at Cornell University.~~
+
 
 <center><a href="https://clustrmaps.com/site/1bh5y"  title="Visit tracker"><img src="//www.clustrmaps.com/map_v2.png?d=YKxOfcR9Q7KzszxH8liwU3S7J6NKaq45NNYZmS8IbzQ&cl=ffffff" /></a></center>
