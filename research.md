@@ -5,6 +5,8 @@ permalink_name: /research
 title: Research
 ---
 
+Last modified date: 04/08/2023
+
 {% for item in site.research %}
 <h2><a href = "{{ item.url }}" >{{ item.title }}</a></h2>
 <p>{{ item.description }}</p>
