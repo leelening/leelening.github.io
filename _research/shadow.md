@@ -1,6 +1,6 @@
 ---
 layout: post
-permalink: /projects/shadow
+permalink: /research/shadow
 permalink_name: /shadow
 title: Serial Interactions in Imperfect Information Games Applied to Complex Military Decision Making (SI3-CMD)
 ---

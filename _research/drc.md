@@ -1,6 +1,6 @@
 ---
 layout: post
-permalink: /projects/drc
+permalink: /research/drc
 permalink_name: /drc
 title: Darpa Robotics Challenge
 ---

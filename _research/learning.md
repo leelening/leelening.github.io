@@ -1,8 +1,8 @@
 ---
 layout: post
-permalink: /projects/rl
+permalink: /research/rl
 permalink_name: /rl
-title: Reinforcement Learning with Formal Methods
+title: Learning-based planning with temporal logic constraints
 ---
 
 ![](../assets/value_surf.png){:style="float: left;margin-left: 7px;margin-right: 7px;margin-top: 7px;margin-bottom: 7px" height="150"}
