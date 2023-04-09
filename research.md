@@ -10,3 +10,8 @@ title: Research
 <p>{{ item.description }}</p>
 
 {% endfor %}
+
+## My research is supported by the following:
+
+{:style="text-align:center;"}
+![](../assets/aro-seal-300x300-1.png) ![](../assets/512px-DARPA-logo-300x165-1.png)

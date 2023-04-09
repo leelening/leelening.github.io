@@ -19,14 +19,14 @@ highlighter: rouge
 header_pages:
   - index.md
   - publications.md
-  - projects.md
+  - research.md
   - software.md
   - posts.md
   - travel.md
   - contact.md
 
 collections:
-  projects:
+  research:
     output: true
 
 include:
