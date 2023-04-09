@@ -1,6 +1,6 @@
 ---
 layout: post
-permalink: /reserach/anytime
+permalink: /research/anytime
 permalink_name: /anytime
 title: Anytime and Scalable Planning Function Approximation meets Important Sampling
 ---

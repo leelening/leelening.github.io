@@ -1,6 +1,6 @@
 ---
 layout: post
-permalink: /reserach/game
+permalink: /research/game
 permalink_name: /game
 title: Formal methods+ game theory for security in cyber and physical systems
 ---
