@@ -1,6 +1,6 @@
 ---
 layout: page
-permalink: /reserach
+permalink: /research
 permalink_name: /research
 title: Research
 ---
