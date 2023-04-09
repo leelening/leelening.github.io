@@ -20,8 +20,8 @@ header_pages:
   - index.md
   - publications.md
   - research.md
-  - software.md
-  - posts.md
+  # - software.md
+  # - posts.md
   - travel.md
   - contact.md
 
