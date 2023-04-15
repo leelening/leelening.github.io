@@ -10,10 +10,6 @@ title: Home
 
 ![](./assets/logo.jpg){:style="float: right;margin-left: 7px;margin-right: 7px;margin-top: 7px;"}
 
-<!-- Currently, I am a Senior Software Engineer at [Symbotic](https://www.symbotic.com/) focusing on routing for multi-agent systems. I proudly earned my Ph.D. degree in Robotics Engineering from Worcester Polytechnic Institute (WPI) under Professor [Jie Fu](https://fujie.ece.ufl.edu/) in December 2022. My research interests include reinforcement learning, stochastic optimal control, game theory, motion planning, and formal methods.
-
-I received a B.S. degree in Computer Science and a B.A. in English Language and Literature from Harbin Institute of Technology, China, in 2014. Then, I obtained a M.S. degree in Computer Science in May 2016 under Professor [Michael A. Gennert](http://web.cs.wpi.edu/~michaelg/) from WPI. Also, I gained another M.S. degree in Robotics Engineering in May 2021 under Professor Jie Fu from WPI. -->
-
 I am currently working as a Senior Software Engineer at [Symbotic](https://www.symbotic.com/), where my focus is on routing for multi-agent systems. I am proud to have earned my Ph.D. in Robotics Engineering from Worcester Polytechnic Institute (WPI) in December 2022, under the guidance of Professor [Jie Fu](https://fujie.ece.ufl.edu/). My research interests are diverse and include reinforcement learning, stochastic optimal control, game theory, motion planning, and formal methods.
 
 In 2014, I obtained my B.S. degree in Computer Science and my B.A. degree in English Language and Literature from Harbin Institute of Technology, China. Following that, I pursued a Master's degree in Computer Science under the mentorship of Professor [Michael A. Gennert](http://web.cs.wpi.edu/~michaelg/) at WPI, which I completed in May 2016. I continued my academic journey and earned another Master's degree in Robotics Engineering in May 2021 under the guidance of Professor Jie Fu from WPI.
