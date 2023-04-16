@@ -17,4 +17,4 @@ The algorithm supports parallel computation and anytime planning. Thus, it has t
 
 ### Related Work
 
-1. **L. Li** and J. Fu, “Sampling-based approximate optimal temporal logic planning,” in Robotics and Automation (ICRA), 2017 IEEE International Conference on, pp. 1328–1335, IEEE, 2017
+1. {% reference li2017sampling --file conferences %}

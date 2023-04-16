@@ -21,5 +21,6 @@ In [2], we study model-free reinforcement learning to maximize the probability o
 
 ### Related work:
 
-1. **L. Li** and J. Fu, “Topological approximate dynamic programming under temporal logic constraints,” in 2019 IEEE 58th Conference on Decision and Control (CDC), pp. 5330–5337, IEEE,2019
-2. **L. Li** and J. Fu, “Approximate dynamic programming with probabilistic temporal logic constraints,” in 2019 American Control Conference (ACC), pp. 1696–1703, IEEE, 2019
+1. {%reference li2019topological --file conferences %}
+
+2. {%reference li2019approximate --file conferences %}

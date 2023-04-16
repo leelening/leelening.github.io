@@ -16,4 +16,4 @@ To carry out tasks in an adversarial environment, the information (or the lack o
 
 ### Related work:
 
-1. **L. Li**, H. Ma, A. N. Kulkarni, and J. Fu, “Dynamic hypergames for synthesis of deceptive strategies with temporal logic objectives,” IEEE Transactions on Automation Science and Engineering, 2022
+1. {% reference li2022dynamic --file journals %}
