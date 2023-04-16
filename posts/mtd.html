@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <title>
+    Demonstration of IP addresses randomization (MTD) - Lening Li
+  </title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script type="text/javascript" src=""></script>
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Demonstration of IP addresses randomization (MTD) | Lening Li</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Demonstration of IP addresses randomization (MTD)" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Note that: Communication between real IP address is blocked &amp; allows only communication on virtual IP addresses. Mechanism: Randomization of IP addresses Randomly sample an integer, termed as pseudo_ran_num from 0 - 32, where 32 is the number of available virtual IP addresses. Let the h1, h2, h3, h4’s IP addresses to be the virtual IP addresses starting from pseudo_ran_num to pseudo_ran_num + 3 Wait until time out and go to the step 1. In the future: we can predefine a set of real-virtual IP addresses mapping. We can introduce an probabilistic transition system, where each state of the transition system represents a predefined real-virtual IP addresses mapping. Step 1: Build topology Use the MiniEdit to build the topology of the network. To run MiniEdit, execute the command: $ sudo ~/mininet/examples/miniedit.py Note that: controller c0 needs to be configured as remote controller, which you can modify in its property. Step 2: Dump flow rules to show no flow rules. $ sudo ovs-ofctl dump-flows s1 The output of above command is: cookie=0x0, duration=2.345s, table=0, n_packets=0, n_bytes=0, priority=0 actions=CONTROLLER:65535 Step 3: Start the controller, this will install the table miss entry to all the switches. $ ryu-manager yourapp.py Observe the initial real to virtual Mappings. For instance (&#39;**********&#39;, {&#39;10.0.0.4&#39;: &#39;10.0.0.24&#39;, &#39;10.0.0.1&#39;: &#39;10.0.0.25&#39;, &#39;10.0.0.3&#39;: &#39;10.0.0.26&#39;, &#39;10.0.0.2&#39;: &#39;10.0.0.27&#39;}, &#39;***********&#39;) This means the current h1 is at IP address 10.0.0.25, h2 is at 10.0.0.27, etc.. Check Flow rules. This flow rule should be empty. Step 4: Initiate a ping from h1 to h3 using its virtual IP mininet&gt; h1 ping 10.0.0.14 Note that IP address 10.0.0.14 is the virtual IP address for the h3. Check flow rules This flow rule should not be empty Step 5: Time out event initiates an update of the real-virtual IP mappings (&#39;**********&#39;, {&#39;10.0.0.4&#39;: &#39;10.0.0.28&#39;, &#39;10.0.0.1&#39;: &#39;10.0.0.29&#39;, &#39;10.0.0.3&#39;: &#39;10.0.0.30&#39;, &#39;10.0.0.2&#39;: &#39;10.0.0.31&#39;}, &#39;***********&#39;) Removes the initial flow rules from all the switches. Check flow rules. $ sudo ovs-ofctl dump-flows s1 The output should be the following: cookie=0x0, duration=1.831s, table=0, n_packets=0, n_bytes=0, priority=0 actions=CONTROLLER:65535 This means that the flow rule is emptied. Step 6: Initiate a ping from h1 to h3 using its updated virtual IP address mininet&gt; h1 ping 10.0.0.30 Note that current IP address for h3 is 10.0.0.30. Check flow rules. This flow should not be empty Step 7: Time out event initiates an update of the real-virtual IP mappings (&#39;**********&#39;, {&#39;10.0.0.4&#39;: &#39;10.0.0.28&#39;, &#39;10.0.0.1&#39;: &#39;10.0.0.29&#39;, &#39;10.0.0.3&#39;: &#39;10.0.0.30&#39;, &#39;10.0.0.2&#39;: &#39;10.0.0.31&#39;}, &#39;***********&#39;) Removes the initial flow rules from all the switches. Check flow rules. $ sudo ovs-ofctl dump-flows s1 The output should be the following: cookie=0x0, duration=449.148s, table=0, n_packets=8, n_bytes=560, priority=0 actions=CONTROLLER:65535 Step 8: Initiate a ping from h1 to h3 using its real IP address mininet&gt; h1 ping 10.0.0.3 See the packet being dropped. PING 10.0.0.3 (10.0.0.3) 56(84) bytes of data. From 10.0.0.1 icmp_seq=1 Destination Host Unreachable From 10.0.0.1 icmp_seq=2 Destination Host Unreachable From 10.0.0.1 icmp_seq=3 Destination Host Unreachable From 10.0.0.1 icmp_seq=4 Destination Host Unreachable From 10.0.0.1 icmp_seq=5 Destination Host Unreachable From 10.0.0.1 icmp_seq=6 Destination Host Unreachable Check flow rules. Packet will be dropped at the first switch itself. References: Jafarian, J. H., Al-Shaer, E., &amp; Duan, Q. (2012, August). Openflow random host mutation: transparent moving target defense using software defined networking. In Proceedings of the first workshop on Hot topics in software defined networks (pp. 127-132). Useful code links: https://github.com/girishsg24/Moving-Target-Defense-RHM-using-SDN: I modified their controller for the IP address randomization https://github.com/saberfeng/attack_mtd_emulation: https://github.com/itswindtw/mtd" />
+<meta property="og:description" content="Note that: Communication between real IP address is blocked &amp; allows only communication on virtual IP addresses. Mechanism: Randomization of IP addresses Randomly sample an integer, termed as pseudo_ran_num from 0 - 32, where 32 is the number of available virtual IP addresses. Let the h1, h2, h3, h4’s IP addresses to be the virtual IP addresses starting from pseudo_ran_num to pseudo_ran_num + 3 Wait until time out and go to the step 1. In the future: we can predefine a set of real-virtual IP addresses mapping. We can introduce an probabilistic transition system, where each state of the transition system represents a predefined real-virtual IP addresses mapping. Step 1: Build topology Use the MiniEdit to build the topology of the network. To run MiniEdit, execute the command: $ sudo ~/mininet/examples/miniedit.py Note that: controller c0 needs to be configured as remote controller, which you can modify in its property. Step 2: Dump flow rules to show no flow rules. $ sudo ovs-ofctl dump-flows s1 The output of above command is: cookie=0x0, duration=2.345s, table=0, n_packets=0, n_bytes=0, priority=0 actions=CONTROLLER:65535 Step 3: Start the controller, this will install the table miss entry to all the switches. $ ryu-manager yourapp.py Observe the initial real to virtual Mappings. For instance (&#39;**********&#39;, {&#39;10.0.0.4&#39;: &#39;10.0.0.24&#39;, &#39;10.0.0.1&#39;: &#39;10.0.0.25&#39;, &#39;10.0.0.3&#39;: &#39;10.0.0.26&#39;, &#39;10.0.0.2&#39;: &#39;10.0.0.27&#39;}, &#39;***********&#39;) This means the current h1 is at IP address 10.0.0.25, h2 is at 10.0.0.27, etc.. Check Flow rules. This flow rule should be empty. Step 4: Initiate a ping from h1 to h3 using its virtual IP mininet&gt; h1 ping 10.0.0.14 Note that IP address 10.0.0.14 is the virtual IP address for the h3. Check flow rules This flow rule should not be empty Step 5: Time out event initiates an update of the real-virtual IP mappings (&#39;**********&#39;, {&#39;10.0.0.4&#39;: &#39;10.0.0.28&#39;, &#39;10.0.0.1&#39;: &#39;10.0.0.29&#39;, &#39;10.0.0.3&#39;: &#39;10.0.0.30&#39;, &#39;10.0.0.2&#39;: &#39;10.0.0.31&#39;}, &#39;***********&#39;) Removes the initial flow rules from all the switches. Check flow rules. $ sudo ovs-ofctl dump-flows s1 The output should be the following: cookie=0x0, duration=1.831s, table=0, n_packets=0, n_bytes=0, priority=0 actions=CONTROLLER:65535 This means that the flow rule is emptied. Step 6: Initiate a ping from h1 to h3 using its updated virtual IP address mininet&gt; h1 ping 10.0.0.30 Note that current IP address for h3 is 10.0.0.30. Check flow rules. This flow should not be empty Step 7: Time out event initiates an update of the real-virtual IP mappings (&#39;**********&#39;, {&#39;10.0.0.4&#39;: &#39;10.0.0.28&#39;, &#39;10.0.0.1&#39;: &#39;10.0.0.29&#39;, &#39;10.0.0.3&#39;: &#39;10.0.0.30&#39;, &#39;10.0.0.2&#39;: &#39;10.0.0.31&#39;}, &#39;***********&#39;) Removes the initial flow rules from all the switches. Check flow rules. $ sudo ovs-ofctl dump-flows s1 The output should be the following: cookie=0x0, duration=449.148s, table=0, n_packets=8, n_bytes=560, priority=0 actions=CONTROLLER:65535 Step 8: Initiate a ping from h1 to h3 using its real IP address mininet&gt; h1 ping 10.0.0.3 See the packet being dropped. PING 10.0.0.3 (10.0.0.3) 56(84) bytes of data. From 10.0.0.1 icmp_seq=1 Destination Host Unreachable From 10.0.0.1 icmp_seq=2 Destination Host Unreachable From 10.0.0.1 icmp_seq=3 Destination Host Unreachable From 10.0.0.1 icmp_seq=4 Destination Host Unreachable From 10.0.0.1 icmp_seq=5 Destination Host Unreachable From 10.0.0.1 icmp_seq=6 Destination Host Unreachable Check flow rules. Packet will be dropped at the first switch itself. References: Jafarian, J. H., Al-Shaer, E., &amp; Duan, Q. (2012, August). Openflow random host mutation: transparent moving target defense using software defined networking. In Proceedings of the first workshop on Hot topics in software defined networks (pp. 127-132). Useful code links: https://github.com/girishsg24/Moving-Target-Defense-RHM-using-SDN: I modified their controller for the IP address randomization https://github.com/saberfeng/attack_mtd_emulation: https://github.com/itswindtw/mtd" />
+<link rel="canonical" href="http://localhost:4000/posts/mtd" />
+<meta property="og:url" content="http://localhost:4000/posts/mtd" />
+<meta property="og:site_name" content="Lening Li" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-04-06T00:00:00-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Demonstration of IP addresses randomization (MTD)" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2021-04-06T00:00:00-04:00","datePublished":"2021-04-06T00:00:00-04:00","description":"Note that: Communication between real IP address is blocked &amp; allows only communication on virtual IP addresses. Mechanism: Randomization of IP addresses Randomly sample an integer, termed as pseudo_ran_num from 0 - 32, where 32 is the number of available virtual IP addresses. Let the h1, h2, h3, h4’s IP addresses to be the virtual IP addresses starting from pseudo_ran_num to pseudo_ran_num + 3 Wait until time out and go to the step 1. In the future: we can predefine a set of real-virtual IP addresses mapping. We can introduce an probabilistic transition system, where each state of the transition system represents a predefined real-virtual IP addresses mapping. Step 1: Build topology Use the MiniEdit to build the topology of the network. To run MiniEdit, execute the command: $ sudo ~/mininet/examples/miniedit.py Note that: controller c0 needs to be configured as remote controller, which you can modify in its property. Step 2: Dump flow rules to show no flow rules. $ sudo ovs-ofctl dump-flows s1 The output of above command is: cookie=0x0, duration=2.345s, table=0, n_packets=0, n_bytes=0, priority=0 actions=CONTROLLER:65535 Step 3: Start the controller, this will install the table miss entry to all the switches. $ ryu-manager yourapp.py Observe the initial real to virtual Mappings. For instance (&#39;**********&#39;, {&#39;10.0.0.4&#39;: &#39;10.0.0.24&#39;, &#39;10.0.0.1&#39;: &#39;10.0.0.25&#39;, &#39;10.0.0.3&#39;: &#39;10.0.0.26&#39;, &#39;10.0.0.2&#39;: &#39;10.0.0.27&#39;}, &#39;***********&#39;) This means the current h1 is at IP address 10.0.0.25, h2 is at 10.0.0.27, etc.. Check Flow rules. This flow rule should be empty. Step 4: Initiate a ping from h1 to h3 using its virtual IP mininet&gt; h1 ping 10.0.0.14 Note that IP address 10.0.0.14 is the virtual IP address for the h3. Check flow rules This flow rule should not be empty Step 5: Time out event initiates an update of the real-virtual IP mappings (&#39;**********&#39;, {&#39;10.0.0.4&#39;: &#39;10.0.0.28&#39;, &#39;10.0.0.1&#39;: &#39;10.0.0.29&#39;, &#39;10.0.0.3&#39;: &#39;10.0.0.30&#39;, &#39;10.0.0.2&#39;: &#39;10.0.0.31&#39;}, &#39;***********&#39;) Removes the initial flow rules from all the switches. Check flow rules. $ sudo ovs-ofctl dump-flows s1 The output should be the following: cookie=0x0, duration=1.831s, table=0, n_packets=0, n_bytes=0, priority=0 actions=CONTROLLER:65535 This means that the flow rule is emptied. Step 6: Initiate a ping from h1 to h3 using its updated virtual IP address mininet&gt; h1 ping 10.0.0.30 Note that current IP address for h3 is 10.0.0.30. Check flow rules. This flow should not be empty Step 7: Time out event initiates an update of the real-virtual IP mappings (&#39;**********&#39;, {&#39;10.0.0.4&#39;: &#39;10.0.0.28&#39;, &#39;10.0.0.1&#39;: &#39;10.0.0.29&#39;, &#39;10.0.0.3&#39;: &#39;10.0.0.30&#39;, &#39;10.0.0.2&#39;: &#39;10.0.0.31&#39;}, &#39;***********&#39;) Removes the initial flow rules from all the switches. Check flow rules. $ sudo ovs-ofctl dump-flows s1 The output should be the following: cookie=0x0, duration=449.148s, table=0, n_packets=8, n_bytes=560, priority=0 actions=CONTROLLER:65535 Step 8: Initiate a ping from h1 to h3 using its real IP address mininet&gt; h1 ping 10.0.0.3 See the packet being dropped. PING 10.0.0.3 (10.0.0.3) 56(84) bytes of data. From 10.0.0.1 icmp_seq=1 Destination Host Unreachable From 10.0.0.1 icmp_seq=2 Destination Host Unreachable From 10.0.0.1 icmp_seq=3 Destination Host Unreachable From 10.0.0.1 icmp_seq=4 Destination Host Unreachable From 10.0.0.1 icmp_seq=5 Destination Host Unreachable From 10.0.0.1 icmp_seq=6 Destination Host Unreachable Check flow rules. Packet will be dropped at the first switch itself. References: Jafarian, J. H., Al-Shaer, E., &amp; Duan, Q. (2012, August). Openflow random host mutation: transparent moving target defense using software defined networking. In Proceedings of the first workshop on Hot topics in software defined networks (pp. 127-132). Useful code links: https://github.com/girishsg24/Moving-Target-Defense-RHM-using-SDN: I modified their controller for the IP address randomization https://github.com/saberfeng/attack_mtd_emulation: https://github.com/itswindtw/mtd","headline":"Demonstration of IP addresses randomization (MTD)","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/mtd"},"url":"http://localhost:4000/posts/mtd"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+</head>
+
+
+  <body class="small">
+
+    <header>
+  <div class="menu">
+    <ul>
+      <li class="page_title">Demonstration of IP addresses randomization (MTD)</li><li><a href="/">/home</a></li><li><a href="/publications">/publications</a></li><li><a href="/research">/research</a></li><li><a href="/travel">/travel</a></li><li><a href="/contact">/contact</a></li></ul>
+  </div>
+</header>
+
+
+    <h1></h1>
+
+<p><em>Note that: Communication between real IP address is blocked &amp; allows only communication on virtual IP addresses.</em></p>
+
+<h2 id="mechanism-randomization-of-ip-addresses">Mechanism: Randomization of IP addresses</h2>
+
+<ol>
+  <li>Randomly sample an integer, termed as <code class="language-plaintext highlighter-rouge">pseudo_ran_num</code> from 0 - 32, where 32 is the number of available virtual IP addresses.</li>
+  <li>Let the h1, h2, h3, h4’s IP addresses to be the virtual IP addresses starting from <code class="language-plaintext highlighter-rouge">pseudo_ran_num</code> to <code class="language-plaintext highlighter-rouge">pseudo_ran_num + 3</code></li>
+  <li>Wait until time out and go to the step 1.</li>
+</ol>
+
+<p>In the future: we can predefine a set of real-virtual IP addresses mapping. We can introduce an probabilistic transition system, where each state of the transition system represents a predefined real-virtual IP addresses mapping.</p>
+
+<h2 id="step-1">Step 1:</h2>
+
+<p>Build topology</p>
+
+<ol>
+  <li>
+    <p>Use the MiniEdit to build the topology of the network. To run MiniEdit, execute the command:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo</span> ~/mininet/examples/miniedit.py
+</code></pre></div>    </div>
+
+    <p><img src="/home/lening/Ubuntu_shared/mtd/h4s5c1.png" alt="" /></p>
+
+    <p><em>Note that: controller c0 needs to be configured as remote controller, which you can modify in its property.</em></p>
+  </li>
+</ol>
+
+<h2 id="step-2">Step 2:</h2>
+
+<p>Dump flow rules to show no flow rules.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>ovs-ofctl dump-flows s1
+</code></pre></div></div>
+
+<p>The output of above command is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cookie=0x0, duration=2.345s, table=0, n_packets=0, n_bytes=0, priority=0 actions=CONTROLLER:65535
+</code></pre></div></div>
+
+<h2 id="step-3">Step 3:</h2>
+
+<ul>
+  <li>
+    <p>Start the controller, this will install the table miss entry to all the switches.</p>
+
+    <ul>
+      <li>
+        <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>ryu-manager yourapp.py
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Observe the initial real to virtual Mappings. For instance</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>('**********', {'10.0.0.4': '10.0.0.24', '10.0.0.1': '10.0.0.25', '10.0.0.3': '10.0.0.26', '10.0.0.2': '10.0.0.27'}, '***********')
+</code></pre></div>    </div>
+
+    <p>This means the current h1 is at IP address 10.0.0.25, h2 is at 10.0.0.27, etc..</p>
+  </li>
+  <li>
+    <p>Check Flow rules.</p>
+
+    <ul>
+      <li>This flow rule should be empty.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="step-4">Step 4:</h2>
+
+<ul>
+  <li>Initiate a ping from h1 to h3 using its virtual IP</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mininet&gt; h1 ping 10.0.0.14
+</code></pre></div></div>
+
+<p><em>Note that IP address 10.0.0.14 is the virtual IP address for the h3.</em></p>
+
+<ul>
+  <li>Check flow rules
+    <ul>
+      <li>This flow rule should not be empty</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="step-5">Step 5:</h2>
+
+<ul>
+  <li>
+    <p>Time out event initiates an update of the real-virtual IP mappings</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>('**********', {'10.0.0.4': '10.0.0.28', '10.0.0.1': '10.0.0.29', '10.0.0.3': '10.0.0.30', '10.0.0.2': '10.0.0.31'}, '***********')
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Removes the initial flow rules from all the switches.</p>
+  </li>
+  <li>
+    <p>Check flow rules.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>ovs-ofctl dump-flows s1
+</code></pre></div>    </div>
+
+    <p>The output should be the following:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cookie=0x0, duration=1.831s, table=0, n_packets=0, n_bytes=0, priority=0 actions=CONTROLLER:65535
+</code></pre></div>    </div>
+
+    <p>This means that the flow rule is emptied.</p>
+  </li>
+</ul>
+
+<h2 id="step-6">Step 6:</h2>
+
+<ul>
+  <li>
+    <p>Initiate a ping from h1 to h3 using its updated virtual IP address</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mininet&gt; h1 ping 10.0.0.30
+</code></pre></div>    </div>
+
+    <p><em>Note that current IP address for h3 is 10.0.0.30.</em></p>
+  </li>
+  <li>
+    <p>Check flow rules.</p>
+
+    <ul>
+      <li>This flow should not be empty</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="step-7">Step 7:</h2>
+
+<ul>
+  <li>
+    <p>Time out event initiates an update of the real-virtual IP mappings</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>('**********', {'10.0.0.4': '10.0.0.28', '10.0.0.1': '10.0.0.29', '10.0.0.3': '10.0.0.30', '10.0.0.2': '10.0.0.31'}, '***********')
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Removes the initial flow rules from all the switches.</p>
+  </li>
+  <li>
+    <p>Check flow rules.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo ovs-ofctl dump-flows s1
+</code></pre></div>    </div>
+
+    <p>The output should be the following:</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cookie=0x0, duration=449.148s, table=0, n_packets=8, n_bytes=560, priority=0 actions=CONTROLLER:65535
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="step-8">Step 8:</h2>
+
+<ul>
+  <li>
+    <p>Initiate a ping from h1 to h3 using its real IP address</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mininet&gt; h1 ping 10.0.0.3
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>See the packet being dropped.</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PING 10.0.0.3 (10.0.0.3) 56(84) bytes of data.
+From 10.0.0.1 icmp_seq=1 Destination Host Unreachable
+From 10.0.0.1 icmp_seq=2 Destination Host Unreachable
+From 10.0.0.1 icmp_seq=3 Destination Host Unreachable
+From 10.0.0.1 icmp_seq=4 Destination Host Unreachable
+From 10.0.0.1 icmp_seq=5 Destination Host Unreachable
+From 10.0.0.1 icmp_seq=6 Destination Host Unreachable
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Check flow rules.</p>
+  </li>
+  <li>
+    <p>Packet will be dropped at the first switch itself.</p>
+  </li>
+</ul>
+
+<h3 id="references">References:</h3>
+
+<ol>
+  <li>Jafarian, J. H., Al-Shaer, E., &amp; Duan, Q. (2012, August). Openflow random host mutation: transparent moving target defense using software defined networking. In <em>Proceedings of the first workshop on Hot topics in software defined networks</em> (pp. 127-132).</li>
+</ol>
+
+<h3 id="useful-code-links">Useful code links:</h3>
+
+<ol>
+  <li>https://github.com/girishsg24/Moving-Target-Defense-RHM-using-SDN: I modified their controller for the IP address randomization</li>
+  <li>https://github.com/saberfeng/attack_mtd_emulation:</li>
+  <li>https://github.com/itswindtw/mtd</li>
+</ol>
+
+
+
+    <footer>
+  Lening Li/mtd
+  <br><br>
+  
+      
+      
+          
+              <a href="mailto:lli4@wpi.edu" title="Email" rel="me">Email</a>
+      
+      
+      
+          
+              <a href="https://www.facebook.com/xiao00li" title="Facebook" rel="me">Facebook</a>
+      
+      
+      
+          
+              <a href="https://www.twitter.com/LeeLening" title="Twitter" rel="me">Twitter</a>
+      
+      
+      
+          
+      
+      
+          
+              <a href="https://github.com/leelening" title="GitHub" rel="me">GitHub</a>
+      
+      
+      
+          
+              <a href="https://www.linkedin.com/in/lening-li" title="LinkedIn" rel="me">LinkedIn</a>
+      
+      
+      
+          
+              <a href="https://instagram.com/leelening" title="Instagram" rel="me">Instagram</a>
+      
+      
+      
+          
+              <a href="http://stackoverflow.com/users/15354570/lening-li" title="StackOverflow" rel="me">StackOverflow</a>
+      
+      
+      
+          
+              <a href="https://youtube.com/channel/UCd7BFnE5SDCUN01Ue3yOYCA" title="YouTube" rel="me">YouTube</a>
+      
+      
+</footer>
+
+
+  </body>
+</html>

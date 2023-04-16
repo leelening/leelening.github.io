@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <title>
+    Dockers as hosts - Lening Li
+  </title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script type="text/javascript" src=""></script>
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Dockers as hosts | Lening Li</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Dockers as hosts" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="To conveniently run different types of hosts in Mininet, it is a good idea to use Docker containers. The idea is from the work [1]. Step 1: Installation Requirement: Requires: Ubuntu Linux 18.04 LTS and Python3 $ sudo apt-get install ansible git aptitude $ git clone https://github.com/containernet/containernet.git $ cd containernet/ansible $ sudo ansible-playbook -i &quot;localhost,&quot; -c local install.yml $ cd .. You can switch between development (default) and normal installation as follows: $ sudo make develop # or $ sudo make install Step 2: Add Dockers instead of Hosts Standard way to add hosts in Mininet: info( &#39;*** Add hosts\n&#39;) h3 = net.addHost(&#39;h3&#39;, cls=Host, ip=&#39;10.0.0.3&#39;, defaultRoute=None) h4 = net.addHost(&#39;h4&#39;, cls=Host, ip=&#39;10.0.0.4&#39;, defaultRoute=None) h2 = net.addHost(&#39;h2&#39;, cls=Host, ip=&#39;10.0.0.2&#39;, defaultRoute=None) h1 = net.addHost(&#39;h1&#39;, cls=Host, ip=&#39;10.0.0.1&#39;, defaultRoute=None) Instead of adding hosts into Mininet, we add docker containers into Mininets as hosts: info(&#39;*** Adding docker containers\n&#39;) d1 = net.addDocker(&#39;d1&#39;, ip=&#39;10.0.0.251&#39;, dimage=&quot;ubuntu:trusty&quot;) d2 = net.addDocker(&#39;d2&#39;, ip=&#39;10.0.0.252&#39;, dimage=&quot;ubuntu:trusty&quot;, cpu_period=50000, cpu_quota=25000) d3 = net.addHost(&#39;d3&#39;, ip=&#39;11.0.0.253&#39;, cls=Docker, dimage=&quot;ubuntu:trusty&quot;, cpu_shares=20) d4 = net.addDocker(&#39;d4&#39;, dimage=&quot;ubuntu:trusty&quot;, volumes=[&quot;/:/mnt/vol1:rw&quot;]) Benefits: Compared to the standard way, using docker it is fast to deploy the network with different types of hosts. We are able to add different types of dockers. References: M. Peuster, H. Karl, and S. v. Rossem: MeDICINE: Rapid Prototyping of Production-Ready Network Services in Multi-PoP Environments. IEEE Conference on Network Function Virtualization and Software Defined Networks (NFV-SDN), Palo Alto, CA, USA, pp. 148-153. doi: 10.1109/NFV-SDN.2016.7919490. (2016) Useful links: https://github.com/containernet/containernet https://www.talentica.com/blogs/using-docker-containers-as-mininet-hosts/: using docker container s mininet hosts" />
+<meta property="og:description" content="To conveniently run different types of hosts in Mininet, it is a good idea to use Docker containers. The idea is from the work [1]. Step 1: Installation Requirement: Requires: Ubuntu Linux 18.04 LTS and Python3 $ sudo apt-get install ansible git aptitude $ git clone https://github.com/containernet/containernet.git $ cd containernet/ansible $ sudo ansible-playbook -i &quot;localhost,&quot; -c local install.yml $ cd .. You can switch between development (default) and normal installation as follows: $ sudo make develop # or $ sudo make install Step 2: Add Dockers instead of Hosts Standard way to add hosts in Mininet: info( &#39;*** Add hosts\n&#39;) h3 = net.addHost(&#39;h3&#39;, cls=Host, ip=&#39;10.0.0.3&#39;, defaultRoute=None) h4 = net.addHost(&#39;h4&#39;, cls=Host, ip=&#39;10.0.0.4&#39;, defaultRoute=None) h2 = net.addHost(&#39;h2&#39;, cls=Host, ip=&#39;10.0.0.2&#39;, defaultRoute=None) h1 = net.addHost(&#39;h1&#39;, cls=Host, ip=&#39;10.0.0.1&#39;, defaultRoute=None) Instead of adding hosts into Mininet, we add docker containers into Mininets as hosts: info(&#39;*** Adding docker containers\n&#39;) d1 = net.addDocker(&#39;d1&#39;, ip=&#39;10.0.0.251&#39;, dimage=&quot;ubuntu:trusty&quot;) d2 = net.addDocker(&#39;d2&#39;, ip=&#39;10.0.0.252&#39;, dimage=&quot;ubuntu:trusty&quot;, cpu_period=50000, cpu_quota=25000) d3 = net.addHost(&#39;d3&#39;, ip=&#39;11.0.0.253&#39;, cls=Docker, dimage=&quot;ubuntu:trusty&quot;, cpu_shares=20) d4 = net.addDocker(&#39;d4&#39;, dimage=&quot;ubuntu:trusty&quot;, volumes=[&quot;/:/mnt/vol1:rw&quot;]) Benefits: Compared to the standard way, using docker it is fast to deploy the network with different types of hosts. We are able to add different types of dockers. References: M. Peuster, H. Karl, and S. v. Rossem: MeDICINE: Rapid Prototyping of Production-Ready Network Services in Multi-PoP Environments. IEEE Conference on Network Function Virtualization and Software Defined Networks (NFV-SDN), Palo Alto, CA, USA, pp. 148-153. doi: 10.1109/NFV-SDN.2016.7919490. (2016) Useful links: https://github.com/containernet/containernet https://www.talentica.com/blogs/using-docker-containers-as-mininet-hosts/: using docker container s mininet hosts" />
+<link rel="canonical" href="http://localhost:4000/posts/docker" />
+<meta property="og:url" content="http://localhost:4000/posts/docker" />
+<meta property="og:site_name" content="Lening Li" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-04-06T00:00:00-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Dockers as hosts" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2021-04-06T00:00:00-04:00","datePublished":"2021-04-06T00:00:00-04:00","description":"To conveniently run different types of hosts in Mininet, it is a good idea to use Docker containers. The idea is from the work [1]. Step 1: Installation Requirement: Requires: Ubuntu Linux 18.04 LTS and Python3 $ sudo apt-get install ansible git aptitude $ git clone https://github.com/containernet/containernet.git $ cd containernet/ansible $ sudo ansible-playbook -i &quot;localhost,&quot; -c local install.yml $ cd .. You can switch between development (default) and normal installation as follows: $ sudo make develop # or $ sudo make install Step 2: Add Dockers instead of Hosts Standard way to add hosts in Mininet: info( &#39;*** Add hosts\\n&#39;) h3 = net.addHost(&#39;h3&#39;, cls=Host, ip=&#39;10.0.0.3&#39;, defaultRoute=None) h4 = net.addHost(&#39;h4&#39;, cls=Host, ip=&#39;10.0.0.4&#39;, defaultRoute=None) h2 = net.addHost(&#39;h2&#39;, cls=Host, ip=&#39;10.0.0.2&#39;, defaultRoute=None) h1 = net.addHost(&#39;h1&#39;, cls=Host, ip=&#39;10.0.0.1&#39;, defaultRoute=None) Instead of adding hosts into Mininet, we add docker containers into Mininets as hosts: info(&#39;*** Adding docker containers\\n&#39;) d1 = net.addDocker(&#39;d1&#39;, ip=&#39;10.0.0.251&#39;, dimage=&quot;ubuntu:trusty&quot;) d2 = net.addDocker(&#39;d2&#39;, ip=&#39;10.0.0.252&#39;, dimage=&quot;ubuntu:trusty&quot;, cpu_period=50000, cpu_quota=25000) d3 = net.addHost(&#39;d3&#39;, ip=&#39;11.0.0.253&#39;, cls=Docker, dimage=&quot;ubuntu:trusty&quot;, cpu_shares=20) d4 = net.addDocker(&#39;d4&#39;, dimage=&quot;ubuntu:trusty&quot;, volumes=[&quot;/:/mnt/vol1:rw&quot;]) Benefits: Compared to the standard way, using docker it is fast to deploy the network with different types of hosts. We are able to add different types of dockers. References: M. Peuster, H. Karl, and S. v. Rossem: MeDICINE: Rapid Prototyping of Production-Ready Network Services in Multi-PoP Environments. IEEE Conference on Network Function Virtualization and Software Defined Networks (NFV-SDN), Palo Alto, CA, USA, pp. 148-153. doi: 10.1109/NFV-SDN.2016.7919490. (2016) Useful links: https://github.com/containernet/containernet https://www.talentica.com/blogs/using-docker-containers-as-mininet-hosts/: using docker container s mininet hosts","headline":"Dockers as hosts","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/docker"},"url":"http://localhost:4000/posts/docker"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+</head>
+
+
+  <body class="small">
+
+    <header>
+  <div class="menu">
+    <ul>
+      <li class="page_title">Dockers as hosts</li><li><a href="/">/home</a></li><li><a href="/publications">/publications</a></li><li><a href="/research">/research</a></li><li><a href="/travel">/travel</a></li><li><a href="/contact">/contact</a></li></ul>
+  </div>
+</header>
+
+
+    <h1></h1>
+
+<p><em>To conveniently run different types of hosts in Mininet, it is a good idea to use Docker containers.</em></p>
+
+<p>The idea is from the work [1].</p>
+
+<h2 id="step-1-installation">Step 1: Installation</h2>
+
+<p>Requirement: Requires: <strong>Ubuntu Linux 18.04 LTS</strong> and <strong>Python3</strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>ansible git aptitude
+<span class="nv">$ </span>git clone https://github.com/containernet/containernet.git
+<span class="nv">$ </span><span class="nb">cd </span>containernet/ansible
+<span class="nv">$ </span><span class="nb">sudo </span>ansible-playbook <span class="nt">-i</span> <span class="s2">"localhost,"</span> <span class="nt">-c</span> <span class="nb">local </span>install.yml
+<span class="nv">$ </span><span class="nb">cd</span> ..
+</code></pre></div></div>
+
+<p>You can switch between development (default) and normal installation as follows:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>make develop
+<span class="c"># or </span>
+<span class="nv">$ </span><span class="nb">sudo </span>make <span class="nb">install</span>
+</code></pre></div></div>
+
+<h2 id="step-2-add-dockers-instead-of-hosts">Step 2: Add Dockers instead of Hosts</h2>
+
+<p>Standard way to add hosts in Mininet:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">info</span><span class="p">(</span> <span class="s">'*** Add hosts</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+<span class="n">h3</span> <span class="o">=</span> <span class="n">net</span><span class="p">.</span><span class="n">addHost</span><span class="p">(</span><span class="s">'h3'</span><span class="p">,</span> <span class="n">cls</span><span class="o">=</span><span class="n">Host</span><span class="p">,</span> <span class="n">ip</span><span class="o">=</span><span class="s">'10.0.0.3'</span><span class="p">,</span> <span class="n">defaultRoute</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">h4</span> <span class="o">=</span> <span class="n">net</span><span class="p">.</span><span class="n">addHost</span><span class="p">(</span><span class="s">'h4'</span><span class="p">,</span> <span class="n">cls</span><span class="o">=</span><span class="n">Host</span><span class="p">,</span> <span class="n">ip</span><span class="o">=</span><span class="s">'10.0.0.4'</span><span class="p">,</span> <span class="n">defaultRoute</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">h2</span> <span class="o">=</span> <span class="n">net</span><span class="p">.</span><span class="n">addHost</span><span class="p">(</span><span class="s">'h2'</span><span class="p">,</span> <span class="n">cls</span><span class="o">=</span><span class="n">Host</span><span class="p">,</span> <span class="n">ip</span><span class="o">=</span><span class="s">'10.0.0.2'</span><span class="p">,</span> <span class="n">defaultRoute</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+<span class="n">h1</span> <span class="o">=</span> <span class="n">net</span><span class="p">.</span><span class="n">addHost</span><span class="p">(</span><span class="s">'h1'</span><span class="p">,</span> <span class="n">cls</span><span class="o">=</span><span class="n">Host</span><span class="p">,</span> <span class="n">ip</span><span class="o">=</span><span class="s">'10.0.0.1'</span><span class="p">,</span> <span class="n">defaultRoute</span><span class="o">=</span><span class="bp">None</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Instead of adding hosts into Mininet, we add docker containers into Mininets as hosts:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">info</span><span class="p">(</span><span class="s">'*** Adding docker containers</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+<span class="n">d1</span> <span class="o">=</span> <span class="n">net</span><span class="p">.</span><span class="n">addDocker</span><span class="p">(</span><span class="s">'d1'</span><span class="p">,</span> <span class="n">ip</span><span class="o">=</span><span class="s">'10.0.0.251'</span><span class="p">,</span> <span class="n">dimage</span><span class="o">=</span><span class="s">"ubuntu:trusty"</span><span class="p">)</span>
+<span class="n">d2</span> <span class="o">=</span> <span class="n">net</span><span class="p">.</span><span class="n">addDocker</span><span class="p">(</span><span class="s">'d2'</span><span class="p">,</span> <span class="n">ip</span><span class="o">=</span><span class="s">'10.0.0.252'</span><span class="p">,</span> <span class="n">dimage</span><span class="o">=</span><span class="s">"ubuntu:trusty"</span><span class="p">,</span> <span class="n">cpu_period</span><span class="o">=</span><span class="mi">50000</span><span class="p">,</span> <span class="n">cpu_quota</span><span class="o">=</span><span class="mi">25000</span><span class="p">)</span>
+<span class="n">d3</span> <span class="o">=</span> <span class="n">net</span><span class="p">.</span><span class="n">addHost</span><span class="p">(</span><span class="s">'d3'</span><span class="p">,</span> <span class="n">ip</span><span class="o">=</span><span class="s">'11.0.0.253'</span><span class="p">,</span> <span class="n">cls</span><span class="o">=</span><span class="n">Docker</span><span class="p">,</span> <span class="n">dimage</span><span class="o">=</span><span class="s">"ubuntu:trusty"</span><span class="p">,</span> <span class="n">cpu_shares</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">d4</span> <span class="o">=</span> <span class="n">net</span><span class="p">.</span><span class="n">addDocker</span><span class="p">(</span><span class="s">'d4'</span><span class="p">,</span> <span class="n">dimage</span><span class="o">=</span><span class="s">"ubuntu:trusty"</span><span class="p">,</span> <span class="n">volumes</span><span class="o">=</span><span class="p">[</span><span class="s">"/:/mnt/vol1:rw"</span><span class="p">])</span>
+</code></pre></div></div>
+
+<h4 id="benefits">Benefits:</h4>
+
+<p>Compared to the standard way, using docker it is fast to deploy the network with different types of hosts. We are able to add different types of dockers.</p>
+
+<h3 id="references">References:</h3>
+
+<ol>
+  <li>M. Peuster, H. Karl, and S. v. Rossem: <a href="http://ieeexplore.ieee.org/document/7919490/"><strong>MeDICINE: Rapid Prototyping of Production-Ready Network Services in Multi-PoP Environments</strong></a>. IEEE Conference on Network Function Virtualization and Software Defined Networks (NFV-SDN), Palo Alto, CA, USA, pp. 148-153. doi: 10.1109/NFV-SDN.2016.7919490. (2016)</li>
+</ol>
+
+<h3 id="useful-links">Useful links:</h3>
+
+<ol>
+  <li>https://github.com/containernet/containernet</li>
+  <li>https://www.talentica.com/blogs/using-docker-containers-as-mininet-hosts/: using docker container s mininet hosts</li>
+</ol>
+
+
+
+    <footer>
+  Lening Li/docker
+  <br><br>
+  
+      
+      
+          
+              <a href="mailto:lli4@wpi.edu" title="Email" rel="me">Email</a>
+      
+      
+      
+          
+              <a href="https://www.facebook.com/xiao00li" title="Facebook" rel="me">Facebook</a>
+      
+      
+      
+          
+              <a href="https://www.twitter.com/LeeLening" title="Twitter" rel="me">Twitter</a>
+      
+      
+      
+          
+      
+      
+          
+              <a href="https://github.com/leelening" title="GitHub" rel="me">GitHub</a>
+      
+      
+      
+          
+              <a href="https://www.linkedin.com/in/lening-li" title="LinkedIn" rel="me">LinkedIn</a>
+      
+      
+      
+          
+              <a href="https://instagram.com/leelening" title="Instagram" rel="me">Instagram</a>
+      
+      
+      
+          
+              <a href="http://stackoverflow.com/users/15354570/lening-li" title="StackOverflow" rel="me">StackOverflow</a>
+      
+      
+      
+          
+              <a href="https://youtube.com/channel/UCd7BFnE5SDCUN01Ue3yOYCA" title="YouTube" rel="me">YouTube</a>
+      
+      
+</footer>
+
+
+  </body>
+</html>

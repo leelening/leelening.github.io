@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <title>
+    Scan Docker image with OpenSCAP (OVAL) scanner - Lening Li
+  </title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script type="text/javascript" src=""></script>
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Scan Docker image with OpenSCAP (OVAL) scanner | Lening Li</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Scan Docker image with OpenSCAP (OVAL) scanner" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Step 1: Installation We will use the the oscap-docker tool from package openscap-containers. First we need to make sure that we need to install related packages: $ sudo apt-get install atomic docker python-docker-py After the installation of the related packages, you run the following to install openscap-containers $ sudo apt-get install openscap-containers The oscap-docker is a simple tool providing interface to use oscap in Docker environment. It allows you to scan running Docker containers and images almost in the same way as scan of local machine. Step 2: Scan Docker containers and images The usage of oscap-docker is quite simple, command has usually this format: $ oscap-docker &lt;image/container&gt;[-cve] &lt;image/container identifier&gt; &lt;oscap parameters&gt; [Optional] CVE scan of container First, you need to bring up the Mininet by the following commend line: $ sudo ./topo.py Now, we can perform CVE scan of our container by running the command below. It will generate OVAL results file and human-readable HTML report. $ oscap-docker container-cve our-rhel7-container [Advanced usage] Scan Docker container using custom security policy There is an option to use your custom security-policy to scan container. We would use SSG in this example. At first, we have to install it. It install SSG SCAP security content to “/usr/share/xml/scap/ssg/content/”. $ sudo apt-get install scap-security-guide Now, we perform scan using custom content. Scanning of container $ oscap-docker container our-rhel7-container xccdf eval --profile ospp --report report.html /usr/share/xml/scap/ssg/content/ssg-rhel7-ds.xml Scanning of images You can also scan Docker images in the same way. In the following example, we will scan against a profile of our choice. $ oscap-docker image registry.access.redhat.com/rhel7 xccdf eval --profile ospp --report report.html /usr/share/xml/scap/ssg/content/ssg-rhel7-ds.xml Useful link: https://www.open-scap.org/resources/documentation/security-compliance-of-rhel7-docker-containers/" />
+<meta property="og:description" content="Step 1: Installation We will use the the oscap-docker tool from package openscap-containers. First we need to make sure that we need to install related packages: $ sudo apt-get install atomic docker python-docker-py After the installation of the related packages, you run the following to install openscap-containers $ sudo apt-get install openscap-containers The oscap-docker is a simple tool providing interface to use oscap in Docker environment. It allows you to scan running Docker containers and images almost in the same way as scan of local machine. Step 2: Scan Docker containers and images The usage of oscap-docker is quite simple, command has usually this format: $ oscap-docker &lt;image/container&gt;[-cve] &lt;image/container identifier&gt; &lt;oscap parameters&gt; [Optional] CVE scan of container First, you need to bring up the Mininet by the following commend line: $ sudo ./topo.py Now, we can perform CVE scan of our container by running the command below. It will generate OVAL results file and human-readable HTML report. $ oscap-docker container-cve our-rhel7-container [Advanced usage] Scan Docker container using custom security policy There is an option to use your custom security-policy to scan container. We would use SSG in this example. At first, we have to install it. It install SSG SCAP security content to “/usr/share/xml/scap/ssg/content/”. $ sudo apt-get install scap-security-guide Now, we perform scan using custom content. Scanning of container $ oscap-docker container our-rhel7-container xccdf eval --profile ospp --report report.html /usr/share/xml/scap/ssg/content/ssg-rhel7-ds.xml Scanning of images You can also scan Docker images in the same way. In the following example, we will scan against a profile of our choice. $ oscap-docker image registry.access.redhat.com/rhel7 xccdf eval --profile ospp --report report.html /usr/share/xml/scap/ssg/content/ssg-rhel7-ds.xml Useful link: https://www.open-scap.org/resources/documentation/security-compliance-of-rhel7-docker-containers/" />
+<link rel="canonical" href="http://localhost:4000/posts/scan" />
+<meta property="og:url" content="http://localhost:4000/posts/scan" />
+<meta property="og:site_name" content="Lening Li" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-04-06T00:00:00-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Scan Docker image with OpenSCAP (OVAL) scanner" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2021-04-06T00:00:00-04:00","datePublished":"2021-04-06T00:00:00-04:00","description":"Step 1: Installation We will use the the oscap-docker tool from package openscap-containers. First we need to make sure that we need to install related packages: $ sudo apt-get install atomic docker python-docker-py After the installation of the related packages, you run the following to install openscap-containers $ sudo apt-get install openscap-containers The oscap-docker is a simple tool providing interface to use oscap in Docker environment. It allows you to scan running Docker containers and images almost in the same way as scan of local machine. Step 2: Scan Docker containers and images The usage of oscap-docker is quite simple, command has usually this format: $ oscap-docker &lt;image/container&gt;[-cve] &lt;image/container identifier&gt; &lt;oscap parameters&gt; [Optional] CVE scan of container First, you need to bring up the Mininet by the following commend line: $ sudo ./topo.py Now, we can perform CVE scan of our container by running the command below. It will generate OVAL results file and human-readable HTML report. $ oscap-docker container-cve our-rhel7-container [Advanced usage] Scan Docker container using custom security policy There is an option to use your custom security-policy to scan container. We would use SSG in this example. At first, we have to install it. It install SSG SCAP security content to “/usr/share/xml/scap/ssg/content/”. $ sudo apt-get install scap-security-guide Now, we perform scan using custom content. Scanning of container $ oscap-docker container our-rhel7-container xccdf eval --profile ospp --report report.html /usr/share/xml/scap/ssg/content/ssg-rhel7-ds.xml Scanning of images You can also scan Docker images in the same way. In the following example, we will scan against a profile of our choice. $ oscap-docker image registry.access.redhat.com/rhel7 xccdf eval --profile ospp --report report.html /usr/share/xml/scap/ssg/content/ssg-rhel7-ds.xml Useful link: https://www.open-scap.org/resources/documentation/security-compliance-of-rhel7-docker-containers/","headline":"Scan Docker image with OpenSCAP (OVAL) scanner","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/scan"},"url":"http://localhost:4000/posts/scan"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+</head>
+
+
+  <body class="small">
+
+    <header>
+  <div class="menu">
+    <ul>
+      <li class="page_title">Scan Docker image with OpenSCAP (OVAL) scanner</li><li><a href="/">/home</a></li><li><a href="/publications">/publications</a></li><li><a href="/research">/research</a></li><li><a href="/travel">/travel</a></li><li><a href="/contact">/contact</a></li></ul>
+  </div>
+</header>
+
+
+    <h1></h1>
+
+<h2 id="step-1-installation">Step 1: Installation</h2>
+
+<p>We will use the the <code class="language-plaintext highlighter-rouge">oscap-docker</code> tool from package <code class="language-plaintext highlighter-rouge">openscap-containers</code>. First we need to make sure that we need to install related packages:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>atomic docker python-docker-py
+</code></pre></div></div>
+
+<p>After the installation of the related packages, you run the following to install <code class="language-plaintext highlighter-rouge">openscap-containers</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>openscap-containers
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">oscap-docker</code> is a simple tool providing interface to use oscap in Docker environment. It allows you to scan running Docker containers and images almost in the same way as scan of local machine.</p>
+
+<h2 id="step-2-scan-docker-containers-and-images">Step 2: Scan Docker containers and images</h2>
+
+<p>The usage of oscap-docker is quite simple, command has usually this format:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>oscap-docker &lt;image/container&gt;[-cve] &lt;image/container identifier&gt; &lt;oscap parameters&gt;
+</code></pre></div></div>
+
+<h3 id="optional-cve-scan-of-container">[Optional] CVE scan of container</h3>
+
+<p>First, you need to bring up the Mininet by the following commend line:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo</span> ./topo.py
+</code></pre></div></div>
+
+<p>Now, we can perform CVE scan of our container by running the command below. It will generate OVAL results file and human-readable HTML report.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>oscap-docker container-cve our-rhel7-container
+</code></pre></div></div>
+
+<h3 id="advanced-usage-scan-docker-container-using-custom-security-policy">[Advanced usage] Scan Docker container using custom security policy</h3>
+
+<p>There is an option to use your custom security-policy to scan container. We would use <a href="https://www.open-scap.org/security-policies/scap-security-guide/">SSG</a> in this example. At first, we have to install it. It install SSG SCAP security content to <em>“/usr/share/xml/scap/ssg/content/”</em>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">sudo </span>apt-get <span class="nb">install </span>scap-security-guide
+</code></pre></div></div>
+
+<p>Now, we perform scan using custom content.</p>
+
+<h4 id="scanning-of-container">Scanning of container</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>oscap-docker container our-rhel7-container xccdf <span class="nb">eval</span> <span class="nt">--profile</span> ospp <span class="nt">--report</span> report.html /usr/share/xml/scap/ssg/content/ssg-rhel7-ds.xml 
+</code></pre></div></div>
+
+<h4 id="scanning-of-images">Scanning of images</h4>
+
+<p>You can also scan Docker images in the same way. In the following example, we will scan against a profile of our choice.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>oscap-docker image registry.access.redhat.com/rhel7 xccdf <span class="nb">eval</span> <span class="nt">--profile</span> ospp <span class="nt">--report</span> report.html /usr/share/xml/scap/ssg/content/ssg-rhel7-ds.xml 
+</code></pre></div></div>
+
+<h4 id="useful-link">Useful link:</h4>
+
+<ol>
+  <li>https://www.open-scap.org/resources/documentation/security-compliance-of-rhel7-docker-containers/</li>
+</ol>
+
+
+
+    <footer>
+  Lening Li/scan
+  <br><br>
+  
+      
+      
+          
+              <a href="mailto:lli4@wpi.edu" title="Email" rel="me">Email</a>
+      
+      
+      
+          
+              <a href="https://www.facebook.com/xiao00li" title="Facebook" rel="me">Facebook</a>
+      
+      
+      
+          
+              <a href="https://www.twitter.com/LeeLening" title="Twitter" rel="me">Twitter</a>
+      
+      
+      
+          
+      
+      
+          
+              <a href="https://github.com/leelening" title="GitHub" rel="me">GitHub</a>
+      
+      
+      
+          
+              <a href="https://www.linkedin.com/in/lening-li" title="LinkedIn" rel="me">LinkedIn</a>
+      
+      
+      
+          
+              <a href="https://instagram.com/leelening" title="Instagram" rel="me">Instagram</a>
+      
+      
+      
+          
+              <a href="http://stackoverflow.com/users/15354570/lening-li" title="StackOverflow" rel="me">StackOverflow</a>
+      
+      
+      
+          
+              <a href="https://youtube.com/channel/UCd7BFnE5SDCUN01Ue3yOYCA" title="YouTube" rel="me">YouTube</a>
+      
+      
+</footer>
+
+
+  </body>
+</html>

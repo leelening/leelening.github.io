@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <title>
+    Find the shortest path from source to destination in a matrix - Lening Li
+  </title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script type="text/javascript" src=""></script>
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Find the shortest path from source to destination in a matrix | Lening Li</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Find the shortest path from source to destination in a matrix" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Pseudo code 1. Create an empty queue and enqueue the source cell having a distance 0 from source (itself) and mark it as visited. 2. Loop till queue is empty 1. Dequeue the front node. 2. If the popped node is the destination node, return its distance. 3. Otherwise, for each of four adjacent cells of the current cell, enqueue each of the valid cells with +1 distance and mark them as visited. 3. If all the queue nodes are processed, and the destination is not reached, then return false. Python code from collections import deque # A queue node used in BFS class Node: # (x, y) represents coordinates of a cell in the matrix # maintain a parent node for the printing path def __init__(self, x, y, parent=None): self.x = x self.y = y self.parent = parent def __repr__(self): return str((self.x, self.y)) def __eq__(self, other): return self.x == other.x and self.y == other.y # Below lists detail all four possible movements from a cell row = [-1, 0, 0, 1] col = [0, -1, 1, 0] # The function returns false if (x, y) is not a valid position def isValid(x, y, N): return (0 &lt;= x &lt; N) and (0 &lt;= y &lt; N) # Utility function to find path from source to destination def getPath(node, path=[]): if node: getPath(node.parent, path) path.append(node) # Find the shortest route in a matrix from source cell (x, y) to # destination cell (N-1, N-1) def findPath(matrix, x=0, y=0): # base case if not matrix or not len(matrix): return # `N × N` matrix N = len(matrix) # create a queue and enqueue the first node q = deque() src = Node(x, y) q.append(src) # set to check if the matrix cell is visited before or not visited = set() key = (src.x, src.y) visited.add(key) # loop till queue is empty while q: # dequeue front node and process it curr = q.popleft() i = curr.x j = curr.y # return if the destination is found if i == N - 1 and j == N - 1: path = [] getPath(curr, path) return path # value of the current cell n = matrix[i][j] # check all four possible movements from the current cell # and recur for each valid movement for k in range(len(row)): # get next position coordinates using the value of the current cell x = i + row[k] * n y = j + col[k] * n # check if it is possible to go to the next position # from the current position if isValid(x, y, N): # construct the next cell node next = Node(x, y, curr) key = (next.x, next.y) # if it isn&#39;t visited yet if key not in visited: # enqueue it and mark it as visited q.append(next) visited.add(key) # return None if the path is not possible return if __name__ == &#39;__main__&#39;: matrix = [ [4, 4, 6, 5, 5, 1, 1, 1, 7, 4], [3, 6, 2, 4, 6, 5, 7, 2, 6, 6], [1, 3, 6, 1, 1, 1, 7, 1, 4, 5], [7, 5, 6, 3, 1, 3, 3, 1, 1, 7], [3, 4, 6, 4, 7, 2, 6, 5, 4, 4], [3, 2, 5, 1, 2, 5, 1, 2, 3, 4], [4, 2, 2, 2, 5, 2, 3, 7, 7, 3], [7, 2, 4, 3, 5, 2, 2, 3, 6, 3], [5, 1, 4, 2, 6, 4, 6, 7, 3, 7], [1, 4, 1, 7, 5, 3, 6, 5, 3, 4] ] # Find a route in the matrix from source cell (0, 0) to # destination cell (N-1, N-1) path = findPath(matrix) if path: print(&#39;The shortest path is&#39;, path) else: print(&#39;Destination is not found&#39;) Run Code" />
+<meta property="og:description" content="Pseudo code 1. Create an empty queue and enqueue the source cell having a distance 0 from source (itself) and mark it as visited. 2. Loop till queue is empty 1. Dequeue the front node. 2. If the popped node is the destination node, return its distance. 3. Otherwise, for each of four adjacent cells of the current cell, enqueue each of the valid cells with +1 distance and mark them as visited. 3. If all the queue nodes are processed, and the destination is not reached, then return false. Python code from collections import deque # A queue node used in BFS class Node: # (x, y) represents coordinates of a cell in the matrix # maintain a parent node for the printing path def __init__(self, x, y, parent=None): self.x = x self.y = y self.parent = parent def __repr__(self): return str((self.x, self.y)) def __eq__(self, other): return self.x == other.x and self.y == other.y # Below lists detail all four possible movements from a cell row = [-1, 0, 0, 1] col = [0, -1, 1, 0] # The function returns false if (x, y) is not a valid position def isValid(x, y, N): return (0 &lt;= x &lt; N) and (0 &lt;= y &lt; N) # Utility function to find path from source to destination def getPath(node, path=[]): if node: getPath(node.parent, path) path.append(node) # Find the shortest route in a matrix from source cell (x, y) to # destination cell (N-1, N-1) def findPath(matrix, x=0, y=0): # base case if not matrix or not len(matrix): return # `N × N` matrix N = len(matrix) # create a queue and enqueue the first node q = deque() src = Node(x, y) q.append(src) # set to check if the matrix cell is visited before or not visited = set() key = (src.x, src.y) visited.add(key) # loop till queue is empty while q: # dequeue front node and process it curr = q.popleft() i = curr.x j = curr.y # return if the destination is found if i == N - 1 and j == N - 1: path = [] getPath(curr, path) return path # value of the current cell n = matrix[i][j] # check all four possible movements from the current cell # and recur for each valid movement for k in range(len(row)): # get next position coordinates using the value of the current cell x = i + row[k] * n y = j + col[k] * n # check if it is possible to go to the next position # from the current position if isValid(x, y, N): # construct the next cell node next = Node(x, y, curr) key = (next.x, next.y) # if it isn&#39;t visited yet if key not in visited: # enqueue it and mark it as visited q.append(next) visited.add(key) # return None if the path is not possible return if __name__ == &#39;__main__&#39;: matrix = [ [4, 4, 6, 5, 5, 1, 1, 1, 7, 4], [3, 6, 2, 4, 6, 5, 7, 2, 6, 6], [1, 3, 6, 1, 1, 1, 7, 1, 4, 5], [7, 5, 6, 3, 1, 3, 3, 1, 1, 7], [3, 4, 6, 4, 7, 2, 6, 5, 4, 4], [3, 2, 5, 1, 2, 5, 1, 2, 3, 4], [4, 2, 2, 2, 5, 2, 3, 7, 7, 3], [7, 2, 4, 3, 5, 2, 2, 3, 6, 3], [5, 1, 4, 2, 6, 4, 6, 7, 3, 7], [1, 4, 1, 7, 5, 3, 6, 5, 3, 4] ] # Find a route in the matrix from source cell (0, 0) to # destination cell (N-1, N-1) path = findPath(matrix) if path: print(&#39;The shortest path is&#39;, path) else: print(&#39;Destination is not found&#39;) Run Code" />
+<link rel="canonical" href="http://localhost:4000/posts/shortestpath" />
+<meta property="og:url" content="http://localhost:4000/posts/shortestpath" />
+<meta property="og:site_name" content="Lening Li" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-09-07T00:00:00-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Find the shortest path from source to destination in a matrix" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-09-07T00:00:00-04:00","datePublished":"2022-09-07T00:00:00-04:00","description":"Pseudo code 1. Create an empty queue and enqueue the source cell having a distance 0 from source (itself) and mark it as visited. 2. Loop till queue is empty 1. Dequeue the front node. 2. If the popped node is the destination node, return its distance. 3. Otherwise, for each of four adjacent cells of the current cell, enqueue each of the valid cells with +1 distance and mark them as visited. 3. If all the queue nodes are processed, and the destination is not reached, then return false. Python code from collections import deque # A queue node used in BFS class Node: # (x, y) represents coordinates of a cell in the matrix # maintain a parent node for the printing path def __init__(self, x, y, parent=None): self.x = x self.y = y self.parent = parent def __repr__(self): return str((self.x, self.y)) def __eq__(self, other): return self.x == other.x and self.y == other.y # Below lists detail all four possible movements from a cell row = [-1, 0, 0, 1] col = [0, -1, 1, 0] # The function returns false if (x, y) is not a valid position def isValid(x, y, N): return (0 &lt;= x &lt; N) and (0 &lt;= y &lt; N) # Utility function to find path from source to destination def getPath(node, path=[]): if node: getPath(node.parent, path) path.append(node) # Find the shortest route in a matrix from source cell (x, y) to # destination cell (N-1, N-1) def findPath(matrix, x=0, y=0): # base case if not matrix or not len(matrix): return # `N × N` matrix N = len(matrix) # create a queue and enqueue the first node q = deque() src = Node(x, y) q.append(src) # set to check if the matrix cell is visited before or not visited = set() key = (src.x, src.y) visited.add(key) # loop till queue is empty while q: # dequeue front node and process it curr = q.popleft() i = curr.x j = curr.y # return if the destination is found if i == N - 1 and j == N - 1: path = [] getPath(curr, path) return path # value of the current cell n = matrix[i][j] # check all four possible movements from the current cell # and recur for each valid movement for k in range(len(row)): # get next position coordinates using the value of the current cell x = i + row[k] * n y = j + col[k] * n # check if it is possible to go to the next position # from the current position if isValid(x, y, N): # construct the next cell node next = Node(x, y, curr) key = (next.x, next.y) # if it isn&#39;t visited yet if key not in visited: # enqueue it and mark it as visited q.append(next) visited.add(key) # return None if the path is not possible return if __name__ == &#39;__main__&#39;: matrix = [ [4, 4, 6, 5, 5, 1, 1, 1, 7, 4], [3, 6, 2, 4, 6, 5, 7, 2, 6, 6], [1, 3, 6, 1, 1, 1, 7, 1, 4, 5], [7, 5, 6, 3, 1, 3, 3, 1, 1, 7], [3, 4, 6, 4, 7, 2, 6, 5, 4, 4], [3, 2, 5, 1, 2, 5, 1, 2, 3, 4], [4, 2, 2, 2, 5, 2, 3, 7, 7, 3], [7, 2, 4, 3, 5, 2, 2, 3, 6, 3], [5, 1, 4, 2, 6, 4, 6, 7, 3, 7], [1, 4, 1, 7, 5, 3, 6, 5, 3, 4] ] # Find a route in the matrix from source cell (0, 0) to # destination cell (N-1, N-1) path = findPath(matrix) if path: print(&#39;The shortest path is&#39;, path) else: print(&#39;Destination is not found&#39;) Run Code","headline":"Find the shortest path from source to destination in a matrix","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/posts/shortestpath"},"url":"http://localhost:4000/posts/shortestpath"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+</head>
+
+
+  <body class="small">
+
+    <header>
+  <div class="menu">
+    <ul>
+      <li class="page_title">Find the shortest path from source to destination in a matrix</li><li><a href="/">/home</a></li><li><a href="/publications">/publications</a></li><li><a href="/research">/research</a></li><li><a href="/travel">/travel</a></li><li><a href="/contact">/contact</a></li></ul>
+  </div>
+</header>
+
+
+    <h1></h1>
+
+<p>Pseudo code</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. Create an empty queue and enqueue the source cell having a distance 0 from source (itself) and mark it as visited.
+2. Loop till queue is empty
+   1. Dequeue the front node.
+   2. If the popped node is the destination node, return its distance.
+   3. Otherwise, for each of four adjacent cells of the current cell, enqueue each of the valid cells with +1 distance and mark them as visited.
+3. If all the queue nodes are processed, and the destination is not reached, then return false.
+</code></pre></div></div>
+<p>Python code</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from collections import deque
+
+
+# A queue node used in BFS
+class Node:
+    # (x, y) represents coordinates of a cell in the matrix
+    # maintain a parent node for the printing path
+    def __init__(self, x, y, parent=None):
+        self.x = x
+        self.y = y
+        self.parent = parent
+
+    def __repr__(self):
+        return str((self.x, self.y))
+
+    def __eq__(self, other):
+        return self.x == other.x and self.y == other.y
+
+
+# Below lists detail all four possible movements from a cell
+row = [-1, 0, 0, 1]
+col = [0, -1, 1, 0]
+
+
+# The function returns false if (x, y) is not a valid position
+def isValid(x, y, N):
+    return (0 &lt;= x &lt; N) and (0 &lt;= y &lt; N)
+
+
+# Utility function to find path from source to destination
+def getPath(node, path=[]):
+    if node:
+        getPath(node.parent, path)
+        path.append(node)
+
+
+# Find the shortest route in a matrix from source cell (x, y) to
+# destination cell (N-1, N-1)
+def findPath(matrix, x=0, y=0):
+    # base case
+    if not matrix or not len(matrix):
+        return
+
+    # `N × N` matrix
+    N = len(matrix)
+
+    # create a queue and enqueue the first node
+    q = deque()
+    src = Node(x, y)
+    q.append(src)
+
+    # set to check if the matrix cell is visited before or not
+    visited = set()
+
+    key = (src.x, src.y)
+    visited.add(key)
+
+    # loop till queue is empty
+    while q:
+
+        # dequeue front node and process it
+        curr = q.popleft()
+        i = curr.x
+        j = curr.y
+
+        # return if the destination is found
+        if i == N - 1 and j == N - 1:
+            path = []
+            getPath(curr, path)
+            return path
+
+        # value of the current cell
+        n = matrix[i][j]
+
+        # check all four possible movements from the current cell
+        # and recur for each valid movement
+        for k in range(len(row)):
+            # get next position coordinates using the value of the current cell
+            x = i + row[k] * n
+            y = j + col[k] * n
+
+            # check if it is possible to go to the next position
+            # from the current position
+            if isValid(x, y, N):
+                # construct the next cell node
+                next = Node(x, y, curr)
+                key = (next.x, next.y)
+
+                # if it isn't visited yet
+                if key not in visited:
+                    # enqueue it and mark it as visited
+                    q.append(next)
+                    visited.add(key)
+
+    # return None if the path is not possible
+    return
+
+
+if __name__ == '__main__':
+
+    matrix = [
+        [4, 4, 6, 5, 5, 1, 1, 1, 7, 4],
+        [3, 6, 2, 4, 6, 5, 7, 2, 6, 6],
+        [1, 3, 6, 1, 1, 1, 7, 1, 4, 5],
+        [7, 5, 6, 3, 1, 3, 3, 1, 1, 7],
+        [3, 4, 6, 4, 7, 2, 6, 5, 4, 4],
+        [3, 2, 5, 1, 2, 5, 1, 2, 3, 4],
+        [4, 2, 2, 2, 5, 2, 3, 7, 7, 3],
+        [7, 2, 4, 3, 5, 2, 2, 3, 6, 3],
+        [5, 1, 4, 2, 6, 4, 6, 7, 3, 7],
+        [1, 4, 1, 7, 5, 3, 6, 5, 3, 4]
+    ]
+
+    # Find a route in the matrix from source cell (0, 0) to
+    # destination cell (N-1, N-1)
+    path = findPath(matrix)
+
+    if path:
+        print('The shortest path is', path)
+    else:
+        print('Destination is not found')
+</code></pre></div></div>
+<p><a href="https://techiedelight.com/compiler/?run=LPtY0yP">Run Code</a></p>
+
+
+
+    <footer>
+  Lening Li/shortestpath
+  <br><br>
+  
+      
+      
+          
+              <a href="mailto:lli4@wpi.edu" title="Email" rel="me">Email</a>
+      
+      
+      
+          
+              <a href="https://www.facebook.com/xiao00li" title="Facebook" rel="me">Facebook</a>
+      
+      
+      
+          
+              <a href="https://www.twitter.com/LeeLening" title="Twitter" rel="me">Twitter</a>
+      
+      
+      
+          
+      
+      
+          
+              <a href="https://github.com/leelening" title="GitHub" rel="me">GitHub</a>
+      
+      
+      
+          
+              <a href="https://www.linkedin.com/in/lening-li" title="LinkedIn" rel="me">LinkedIn</a>
+      
+      
+      
+          
+              <a href="https://instagram.com/leelening" title="Instagram" rel="me">Instagram</a>
+      
+      
+      
+          
+              <a href="http://stackoverflow.com/users/15354570/lening-li" title="StackOverflow" rel="me">StackOverflow</a>
+      
+      
+      
+          
+              <a href="https://youtube.com/channel/UCd7BFnE5SDCUN01Ue3yOYCA" title="YouTube" rel="me">YouTube</a>
+      
+      
+</footer>
+
+
+  </body>
+</html>

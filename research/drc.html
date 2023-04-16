@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+  <title>
+    Darpa Robotics Challenge - Lening Li
+  </title>
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script type="text/javascript" src=""></script>
+
+  <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Darpa Robotics Challenge | Lening Li</title>
+<meta name="generator" content="Jekyll v3.9.3" />
+<meta property="og:title" content="Darpa Robotics Challenge" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The Department of Defense’s strategic plan calls for the Joint Force to conduct humanitarian, disaster relief, and related operations. Some disasters, due to grave risks to the health and wellbeing of rescue and aid workers, prove too great in scale or scope for timely and effective human response. The DARPA Robotics Challenge (DRC) seeks to address this problem by promoting innovation in human-supervised robotic technology for disaster-response operations. The primary technical goal of the DRC is to develop human-supervised ground robots capable of executing complex tasks in dangerous, degraded, human-engineered environments. Competitors in the DRC are developing robots that can utilize standard tools and equipment commonly available in human environments, ranging from hand tools to vehicles. To achieve its goal, the DRC is advancing the state of the art of supervised autonomy, mounted and dismounted mobility, and platform dexterity, strength, and endurance. Improvements in supervised autonomy, in particular, aim to enable better control of robots by non-expert supervisors and allow effective operation despite degraded communications (low bandwidth, high latency, intermittent connection). The DRC program website provides program highlights, including the DRC Trials held in December 2013 and the DRC Finals in June 2015. Related work: L. Li, X. Long, and M. A. Gennert, “Birrtopt: A combined sampling and optimizing motion planner for humanoid robots,” in2016 IEEE-RAS 16th International Conference on Humanoid Robots (Humanoids), pp. 469–476, IEEE, 2016 C. G. Atkeson, B. P. W. Babu, N. Banerjee, D. Berenson, C. P. Bove, X. Cui, M. DeDonato, R. Du,S. Feng, P. Franklin,et al., “No falls, no resets: Reliable humanoid behavior in the darpa robotics challenge,” in Humanoid Robots (Humanoids), 2015 IEEE-RAS 15th International Conference on,pp. 623–630, IEEE, 2015 M. DeDonato, F. Polido, K. Knoedler, B. P. Babu, N. Banerjee, C. P. Bove, X. Cui, R. Du,P. Franklin, J. P. Graff,et al., “Team wpi-cmu: Achieving reliable humanoid behavior in the darpa robotics challenge,”Journal of Field Robotics, vol. 34, no. 2, pp. 381–399, 2017 C. G. Atkeson, B. Babu, N. Banerjee, D. Berenson, C. Bove, X. Cui, M. DeDonato, R. Du, S. Feng,P. Franklin,et al., “What happened at the darpa robotics challenge, and why,”submitted to the DRC Finals Special Issue of the Journal of Field Robotics, vol. 1, 2016 C. G. Atkeson, P. B. Benzun, N. Banerjee, D. Berenson, C. P. Bove, X. Cui, M. DeDonato, R. Du,S. Feng, P. Franklin,et al., “Achieving reliable humanoid robot operations in the darpa robotics challenge: Team wpi-cmus approach,” in The DARPA Robotics Challenge Finals: Humanoid Robots To The Rescue, pp. 271–307, Springer, 2018 C. G. Atkeson, P. B. Benzun, N. Banerjee, D. Berenson, C. P. Bove, X. Cui, M. DeDonato,R. Du, S. Feng, P. Franklin,et al., “What happened at the darpa robotics challenge finals,” in The DARPA Robotics Challenge Finals: Humanoid Robots To The Rescue, pp. 667–684, Springer,2018 L. Li, Birrtopt: A combined software framework for motion planning applied on atlas robot. Master’s thesis, Worcester Polytechnic Institute, 2016" />
+<meta property="og:description" content="The Department of Defense’s strategic plan calls for the Joint Force to conduct humanitarian, disaster relief, and related operations. Some disasters, due to grave risks to the health and wellbeing of rescue and aid workers, prove too great in scale or scope for timely and effective human response. The DARPA Robotics Challenge (DRC) seeks to address this problem by promoting innovation in human-supervised robotic technology for disaster-response operations. The primary technical goal of the DRC is to develop human-supervised ground robots capable of executing complex tasks in dangerous, degraded, human-engineered environments. Competitors in the DRC are developing robots that can utilize standard tools and equipment commonly available in human environments, ranging from hand tools to vehicles. To achieve its goal, the DRC is advancing the state of the art of supervised autonomy, mounted and dismounted mobility, and platform dexterity, strength, and endurance. Improvements in supervised autonomy, in particular, aim to enable better control of robots by non-expert supervisors and allow effective operation despite degraded communications (low bandwidth, high latency, intermittent connection). The DRC program website provides program highlights, including the DRC Trials held in December 2013 and the DRC Finals in June 2015. Related work: L. Li, X. Long, and M. A. Gennert, “Birrtopt: A combined sampling and optimizing motion planner for humanoid robots,” in2016 IEEE-RAS 16th International Conference on Humanoid Robots (Humanoids), pp. 469–476, IEEE, 2016 C. G. Atkeson, B. P. W. Babu, N. Banerjee, D. Berenson, C. P. Bove, X. Cui, M. DeDonato, R. Du,S. Feng, P. Franklin,et al., “No falls, no resets: Reliable humanoid behavior in the darpa robotics challenge,” in Humanoid Robots (Humanoids), 2015 IEEE-RAS 15th International Conference on,pp. 623–630, IEEE, 2015 M. DeDonato, F. Polido, K. Knoedler, B. P. Babu, N. Banerjee, C. P. Bove, X. Cui, R. Du,P. Franklin, J. P. Graff,et al., “Team wpi-cmu: Achieving reliable humanoid behavior in the darpa robotics challenge,”Journal of Field Robotics, vol. 34, no. 2, pp. 381–399, 2017 C. G. Atkeson, B. Babu, N. Banerjee, D. Berenson, C. Bove, X. Cui, M. DeDonato, R. Du, S. Feng,P. Franklin,et al., “What happened at the darpa robotics challenge, and why,”submitted to the DRC Finals Special Issue of the Journal of Field Robotics, vol. 1, 2016 C. G. Atkeson, P. B. Benzun, N. Banerjee, D. Berenson, C. P. Bove, X. Cui, M. DeDonato, R. Du,S. Feng, P. Franklin,et al., “Achieving reliable humanoid robot operations in the darpa robotics challenge: Team wpi-cmus approach,” in The DARPA Robotics Challenge Finals: Humanoid Robots To The Rescue, pp. 271–307, Springer, 2018 C. G. Atkeson, P. B. Benzun, N. Banerjee, D. Berenson, C. P. Bove, X. Cui, M. DeDonato,R. Du, S. Feng, P. Franklin,et al., “What happened at the darpa robotics challenge finals,” in The DARPA Robotics Challenge Finals: Humanoid Robots To The Rescue, pp. 667–684, Springer,2018 L. Li, Birrtopt: A combined software framework for motion planning applied on atlas robot. Master’s thesis, Worcester Polytechnic Institute, 2016" />
+<link rel="canonical" href="http://localhost:4000/research/drc" />
+<meta property="og:url" content="http://localhost:4000/research/drc" />
+<meta property="og:site_name" content="Lening Li" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-04-15T21:19:16-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Darpa Robotics Challenge" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-04-15T21:19:16-04:00","datePublished":"2023-04-15T21:19:16-04:00","description":"The Department of Defense’s strategic plan calls for the Joint Force to conduct humanitarian, disaster relief, and related operations. Some disasters, due to grave risks to the health and wellbeing of rescue and aid workers, prove too great in scale or scope for timely and effective human response. The DARPA Robotics Challenge (DRC) seeks to address this problem by promoting innovation in human-supervised robotic technology for disaster-response operations. The primary technical goal of the DRC is to develop human-supervised ground robots capable of executing complex tasks in dangerous, degraded, human-engineered environments. Competitors in the DRC are developing robots that can utilize standard tools and equipment commonly available in human environments, ranging from hand tools to vehicles. To achieve its goal, the DRC is advancing the state of the art of supervised autonomy, mounted and dismounted mobility, and platform dexterity, strength, and endurance. Improvements in supervised autonomy, in particular, aim to enable better control of robots by non-expert supervisors and allow effective operation despite degraded communications (low bandwidth, high latency, intermittent connection). The DRC program website provides program highlights, including the DRC Trials held in December 2013 and the DRC Finals in June 2015. Related work: L. Li, X. Long, and M. A. Gennert, “Birrtopt: A combined sampling and optimizing motion planner for humanoid robots,” in2016 IEEE-RAS 16th International Conference on Humanoid Robots (Humanoids), pp. 469–476, IEEE, 2016 C. G. Atkeson, B. P. W. Babu, N. Banerjee, D. Berenson, C. P. Bove, X. Cui, M. DeDonato, R. Du,S. Feng, P. Franklin,et al., “No falls, no resets: Reliable humanoid behavior in the darpa robotics challenge,” in Humanoid Robots (Humanoids), 2015 IEEE-RAS 15th International Conference on,pp. 623–630, IEEE, 2015 M. DeDonato, F. Polido, K. Knoedler, B. P. Babu, N. Banerjee, C. P. Bove, X. Cui, R. Du,P. Franklin, J. P. Graff,et al., “Team wpi-cmu: Achieving reliable humanoid behavior in the darpa robotics challenge,”Journal of Field Robotics, vol. 34, no. 2, pp. 381–399, 2017 C. G. Atkeson, B. Babu, N. Banerjee, D. Berenson, C. Bove, X. Cui, M. DeDonato, R. Du, S. Feng,P. Franklin,et al., “What happened at the darpa robotics challenge, and why,”submitted to the DRC Finals Special Issue of the Journal of Field Robotics, vol. 1, 2016 C. G. Atkeson, P. B. Benzun, N. Banerjee, D. Berenson, C. P. Bove, X. Cui, M. DeDonato, R. Du,S. Feng, P. Franklin,et al., “Achieving reliable humanoid robot operations in the darpa robotics challenge: Team wpi-cmus approach,” in The DARPA Robotics Challenge Finals: Humanoid Robots To The Rescue, pp. 271–307, Springer, 2018 C. G. Atkeson, P. B. Benzun, N. Banerjee, D. Berenson, C. P. Bove, X. Cui, M. DeDonato,R. Du, S. Feng, P. Franklin,et al., “What happened at the darpa robotics challenge finals,” in The DARPA Robotics Challenge Finals: Humanoid Robots To The Rescue, pp. 667–684, Springer,2018 L. Li, Birrtopt: A combined software framework for motion planning applied on atlas robot. Master’s thesis, Worcester Polytechnic Institute, 2016","headline":"Darpa Robotics Challenge","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/research/drc"},"url":"http://localhost:4000/research/drc"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+</head>
+
+
+  <body class="small">
+
+    <header>
+  <div class="menu">
+    <ul>
+      <li class="page_title">Darpa Robotics Challenge</li><li><a href="/">/home</a></li><li><a href="/publications">/publications</a></li><li><a href="/research">/research</a></li><li><a href="/travel">/travel</a></li><li><a href="/contact">/contact</a></li></ul>
+  </div>
+</header>
+
+
+    <h1></h1>
+
+<p><img src="../assets/drc_team.jpg" alt="" height="400" /></p>
+
+<p>The Department of Defense’s strategic plan calls for the Joint Force to conduct humanitarian, disaster relief, and related operations. Some disasters, due to grave risks to the health and wellbeing of rescue and aid workers, prove too great in scale or scope for timely and effective human response. The DARPA Robotics Challenge (DRC) seeks to address this problem by promoting innovation in human-supervised robotic technology for disaster-response operations. The primary technical goal of the DRC is to develop human-supervised ground robots capable of executing complex tasks in dangerous, degraded, human-engineered environments. Competitors in the DRC are developing robots that can utilize standard tools and equipment commonly available in human environments, ranging from hand tools to vehicles. To achieve its goal, the DRC is advancing the state of the art of supervised autonomy, mounted and dismounted mobility, and platform dexterity, strength, and endurance. Improvements in supervised autonomy, in particular, aim to enable better control of robots by non-expert supervisors and allow effective operation despite degraded communications (low bandwidth, high latency, intermittent connection). The DRC program <a href="https://archive.darpa.mil/roboticschallenge">website</a> provides program highlights, including the DRC Trials held in December 2013 and the DRC Finals in June 2015.</p>
+
+<iframe width="300" src="https://www.youtube.com/embed/BgfsxH3poCU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<iframe width="300" src="https://www.youtube.com/embed/AvyGzqwOPSM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+
+<h3 id="related-work">Related work:</h3>
+
+<ol>
+  <li><strong>L. Li</strong>, X. Long, and M. A. Gennert, “Birrtopt: A combined sampling and optimizing motion planner for humanoid robots,” in2016 IEEE-RAS 16th International Conference on Humanoid Robots (Humanoids), pp. 469–476, IEEE, 2016</li>
+  <li>C. G. Atkeson, B. P. W. Babu, N. Banerjee, D. Berenson, C. P. Bove, X. Cui, M. DeDonato, R. Du,S. Feng, P. Franklin,et al., “No falls, no resets: Reliable</li>
+  <li>humanoid behavior in the darpa robotics challenge,” in Humanoid Robots (Humanoids), 2015 IEEE-RAS 15th International Conference on,pp. 623–630, IEEE, 2015</li>
+  <li>M. DeDonato, F. Polido, K. Knoedler, B. P. Babu, N. Banerjee, C. P. Bove, X. Cui, R. Du,P. Franklin, J. P. Graff,et al., “Team wpi-cmu: Achieving reliable humanoid behavior in the darpa robotics challenge,”Journal of Field Robotics, vol. 34, no. 2, pp. 381–399, 2017</li>
+  <li>C. G. Atkeson, B. Babu, N. Banerjee, D. Berenson, C. Bove, X. Cui, M. DeDonato, R. Du, S. Feng,P. Franklin,et al., “What happened at the darpa robotics challenge, and why,”submitted to the DRC Finals Special Issue of the Journal of Field Robotics, vol. 1, 2016</li>
+  <li>C. G. Atkeson, P. B. Benzun, N. Banerjee, D. Berenson, C. P. Bove, X. Cui, M. DeDonato, R. Du,S. Feng, P. Franklin,et al., “Achieving reliable humanoid robot operations in the darpa robotics challenge: Team wpi-cmus approach,” in The DARPA Robotics Challenge Finals: Humanoid Robots To The Rescue, pp. 271–307, Springer, 2018</li>
+  <li>C. G. Atkeson, P. B. Benzun, N. Banerjee, D. Berenson, C. P. Bove, X. Cui, M. DeDonato,R. Du, S. Feng, P. Franklin,et al., “What happened at the darpa robotics challenge finals,” in The DARPA Robotics Challenge Finals: Humanoid Robots To The Rescue, pp. 667–684, Springer,2018</li>
+  <li><strong>L. Li</strong>, Birrtopt: A combined software framework for motion planning applied on atlas robot. Master’s thesis, Worcester Polytechnic Institute, 2016</li>
+</ol>
+
+
+
+    <footer>
+  Lening Li/drc
+  <br><br>
+  
+      
+      
+          
+              <a href="mailto:lli4@wpi.edu" title="Email" rel="me">Email</a>
+      
+      
+      
+          
+              <a href="https://www.facebook.com/xiao00li" title="Facebook" rel="me">Facebook</a>
+      
+      
+      
+          
+              <a href="https://www.twitter.com/LeeLening" title="Twitter" rel="me">Twitter</a>
+      
+      
+      
+          
+      
+      
+          
+              <a href="https://github.com/leelening" title="GitHub" rel="me">GitHub</a>
+      
+      
+      
+          
+              <a href="https://www.linkedin.com/in/lening-li" title="LinkedIn" rel="me">LinkedIn</a>
+      
+      
+      
+          
+              <a href="https://instagram.com/leelening" title="Instagram" rel="me">Instagram</a>
+      
+      
+      
+          
+              <a href="http://stackoverflow.com/users/15354570/lening-li" title="StackOverflow" rel="me">StackOverflow</a>
+      
+      
+      
+          
+              <a href="https://youtube.com/channel/UCd7BFnE5SDCUN01Ue3yOYCA" title="YouTube" rel="me">YouTube</a>
+      
+      
+</footer>
+
+
+  </body>
+</html>
