@@ -5,24 +5,24 @@ permalink_name: /publications
 title: Publications
 ---
 
-Last modified date: 04/08/2023
+Last modified date: 04/16/2023
 
 ## Under review
 
-{% bibliography --file under_review %}
+{% bibliography -q @preprint %}
 
 ## Conference
 
-{% bibliography --file conferences %}
+{% bibliography -q @inproceedings  %}
 
 ## Journal
 
-{% bibliography --file journals %}
+{% bibliography -q @article %}
 
 ## Book
 
-{% bibliography --file books %}
+{% bibliography -q @inbook %}
 
 ## Thesis
 
-{% bibliography --file thesis %}
+{% bibliography -q @phdthesis %}

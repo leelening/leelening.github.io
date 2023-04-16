@@ -16,4 +16,4 @@ To carry out tasks in an adversarial environment, the information (or the lack o
 
 ### Related work:
 
-1. {% reference li2022dynamic --file journals %}
+1. {% reference li2022dynamic %}

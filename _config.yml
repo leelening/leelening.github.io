@@ -40,5 +40,25 @@ remote_theme: "tareqdandachi/jekyll-shell-theme"
 
 scholar:
   style: apa
-  sort_by: year, month, day
+  locale: en
+
+  sort_by: year, month
   order: descending
+
+  group_by: none
+  group_order: ascending
+
+  source: ./_bibliography
+  bibliography: references.bib
+  bibliography_template: bib
+
+  replace_strings: true
+  join_strings:    true
+
+  use_raw_bibtex_entry: true
+
+  details_dir:    bibliography
+  details_layout: bibtex.html
+  details_link:   Details
+
+  query: "@*"

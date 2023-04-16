@@ -15,14 +15,14 @@ The Department of Defense’s strategic plan calls for the Joint Force to conduc
 
 ### Related work:
 
-1. {% reference li2016birrtopt --file conferences %}
+1. {% reference li2016birrtopt %}
 
-2. {% reference atkeson2015no --file conferences %}
+2. {% reference atkeson2015no %}
 
-3. {% reference dedonato2017team --file journals %}
+3. {% reference dedonato2017team %}
 
-4. {% reference atkeson2018happened --file books %}
+4. {% reference atkeson2018happened %}
 
-5. {% reference atkeson2018achieving --file books %}
+5. {% reference atkeson2018achieving %}
 
-6. {% reference li2016birrtopt --file thesis %}
+6. {% reference li2016birrtopt %}

@@ -21,6 +21,6 @@ In [2], we study model-free reinforcement learning to maximize the probability o
 
 ### Related work:
 
-1. {%reference li2019topological --file conferences %}
+1. {%reference li2019topological %}
 
-2. {%reference li2019approximate --file conferences %}
+2. {%reference li2019approximate %}

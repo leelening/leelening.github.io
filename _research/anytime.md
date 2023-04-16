@@ -17,4 +17,4 @@ The algorithm supports parallel computation and anytime planning. Thus, it has t
 
 ### Related Work
 
-1. {% reference li2017sampling --file conferences %}
+1. {% reference li2017sampling %}
