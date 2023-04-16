@@ -10,6 +10,7 @@ plugins:
   - jemoji
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll/scholar
 
 sass:
   style: compressed
@@ -36,3 +37,8 @@ include:
 font-size: small
 
 remote_theme: "tareqdandachi/jekyll-shell-theme"
+
+scholar:
+  style: apa
+  sort_by: year, month, day
+  order: descending
