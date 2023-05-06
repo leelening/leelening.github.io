@@ -18,9 +18,10 @@ Overall, my academic background and professional experience have equipped me wit
 
 To see more details, click my [curriculum vitae](https://drive.google.com/file/d/1MmUvte9eJH49C5VyeVby-Z4RkXL9B-nW/view?usp=sharing) or [履历](https://drive.google.com/file/d/1MmJdGnNAjh3ZaCq0C7UZm_JhYPDgnekm/view?usp=sharing).
 
-Last modified date: 04/08/2023
+Last modified date: 05/06/2023
 
 ## News
+- My new paper [Probabilistic Planning with Prioritized Preferences over Temporal Logic Objectives](https://arxiv.org/abs/2304.11641) is accepted to 32nd International Joint Conference on Artificial Intelligence (IJCAI 2023, acceptance rate ~15%).
 - My new paper [Synthesis of Proactive Sensor Placement In Probabilistic Attack Graphs](https://arxiv.org/abs/2210.07385) is accepted to [2023 American Control Conference](https://acc2023.a2c2.org/) where I will be presenting my work.
 - I joined minibot routing team at Symbotic on 3rd October 2022.
 - I earned my Ph.D. degree in Robotics Engineering from WPI in December 2022.
